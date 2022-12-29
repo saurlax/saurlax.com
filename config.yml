@@ -29,7 +29,7 @@ params:
     apple_touch_icon: /favicon.png
     safari_pinned_tab: /favicon.svg
   editPost:
-    url: https://github.com/saurlax/saurlax.github.io/content
+    url: https://github.com/saurlax/saurlax.github.io/blob/master/content
     text: 在GitHub上编辑
     appendFilePath: true
   label:
