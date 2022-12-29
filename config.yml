@@ -23,7 +23,6 @@ params:
   showPostNavLinks: true
   showBreadCrumbs: true
   showToc: true
-  comments: true
   math: true
   assets:
     favicon: /favicon.svg
