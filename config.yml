@@ -62,7 +62,7 @@ menu:
       url: /search
       weight: 10
     - name: 笔记
-      url: /notes
+      url: /categories/笔记
       weight: 20
     - name: 标签
       url: /tags
