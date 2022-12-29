@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://saurlax.com/sitemap.xml

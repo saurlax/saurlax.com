@@ -1,0 +1,70 @@
+baseURL: https://saurlax.com/
+languageCode: zh
+defaultContentLanguage: zh
+title: Saurlax
+paginate: 10
+# This special folder is used for Github Pages service
+publishdir: docs
+theme: hugo-PaperMod
+enableEmoji: true
+enableInlineShortCodes: true
+enableRobotsTXT: true
+minify:
+  minifyOutput: true
+
+params:
+  env: production
+  description: Saurlax的个人网站，一个分享知识与生活的地方。
+  keywords: [Saurlax, blog, 博客, 个人网站]
+  author: Saurlax
+  showReadingTime: true
+  showPostNavLinks: true
+  showBreadCrumbs: true
+  showToc: true
+  comments: true
+  assets:
+    favicon: /favicon.svg
+    apple_touch_icon: /favicon.png
+    safari_pinned_tab: /favicon.svg
+  editPost:
+    url: https://github.com/saurlax/saurlax.github.io/content
+    text: 在GitHub上编辑
+    appendFilePath: true
+  label:
+    icon: /favicon.svg
+  socialIcons:
+    - name: github
+      url: https://github.com/saurlax
+    - name: bilibili
+      url: https://space.bilibili.com/251608296
+    - name: qq
+      url: https://jq.qq.com/?_wv=1027&k=pkGNK87g
+    - name: email
+      url: mailto:saurlax@qq.com
+    - name: rss
+      url: /index.xml
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+
+languages:
+  zh:
+    languageName: 中文
+    homeInfoParams:
+      title: Saurlax😺
+      content: 高中学生，独立开发者
+    menu:
+      main:
+        - name: 标签
+          url: /tags
+          weight: 10
+        - name: 分类
+          url: /categories
+          weight: 10
+        - name: 关于
+          url: /about
+          weight: 20
