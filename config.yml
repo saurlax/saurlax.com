@@ -1,4 +1,4 @@
-baseURL: https://saurlax.com/
+baseURL: https://www.saurlax.com/
 languageCode: zh
 defaultContentLanguage: zh
 title: Saurlax
@@ -11,6 +11,8 @@ enableInlineShortCodes: true
 enableRobotsTXT: true
 minify:
   minifyOutput: true
+outputs:
+  home: [HTML, RSS, JSON]
 
 params:
   env: production
@@ -22,6 +24,7 @@ params:
   showBreadCrumbs: true
   showToc: true
   comments: true
+  math: true
   assets:
     favicon: /favicon.svg
     apple_touch_icon: /favicon.png
@@ -32,6 +35,9 @@ params:
     appendFilePath: true
   label:
     icon: /favicon.svg
+  homeInfoParams:
+    title: Saurlax😺
+    content: 高中学生，独立开发者
   socialIcons:
     - name: github
       url: https://github.com/saurlax
@@ -51,20 +57,20 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
 
-languages:
-  zh:
-    languageName: 中文
-    homeInfoParams:
-      title: Saurlax😺
-      content: 高中学生，独立开发者
-    menu:
-      main:
-        - name: 标签
-          url: /tags
-          weight: 10
-        - name: 分类
-          url: /categories
-          weight: 10
-        - name: 关于
-          url: /about
-          weight: 20
+menu:
+   main:
+    - name: 搜索
+      url: /search
+      weight: 10
+    - name: 笔记
+      url: /notes
+      weight: 20
+    - name: 标签
+      url: /tags
+      weight: 30
+    - name: 分类
+      url: /categories
+      weight: 30
+    - name: 关于
+      url: /about
+      weight: 40
