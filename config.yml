@@ -2,6 +2,7 @@ baseURL: https://www.saurlax.com/
 languageCode: zh
 defaultContentLanguage: zh
 title: Saurlax
+copyright: © 2022-2023 Saurlax
 paginate: 10
 # This special folder is used for Github Pages service
 publishdir: docs
