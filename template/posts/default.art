@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{@head}}
+    <title>Saurlax</title>
+  </head>
+  <body>
+    <a href="/">&lt; back to index</a>
+    <h1>{{ metadata.title }}</h1>
+    <div>
+      <div>{{ metadata.date }}</div>
+      <div>Categories: {{ metadata.categories }}</div>
+      <div>Tags: {{ metadata.tags }}</div>
+    </div>
+    {{@content}}
+    <a href="/">&lt; back to index</a>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Site
+name: Vivia Starter
+
+# Build
+prerender:
+  '**/*.md': [front-matter, marked]
+
+render:
+  '**/*.md': [art-template]
+
+plugins:
+  marked:
+    admonition: true
+    katex: true
+    bidi: true
+    extendedTables: true
+    highlight: true

@@ -1,0 +1,9 @@
+# Dependency
+node_modules
+
+# Lock file
+package-lock.json
+yarn.lock
+
+# Build output
+public

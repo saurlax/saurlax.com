@@ -1,0 +1,17 @@
+{
+  "name": "saurlax.com",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Saurlax <saurlax@qq.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "serve": "vivia serve",
+    "build": "vivia build"
+  },
+  "dependencies": {
+    "vivia": "^0.0.9",
+    "vivia-art-template": "^0.0.3",
+    "vivia-front-matter": "^0.0.1",
+    "vivia-marked": "^0.0.4"
+  }
+}
