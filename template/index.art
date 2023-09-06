@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saurlax</title>
-  </head>
-  <body>
-    {{@content}}
-    <div><a href="/about.html">About</a><br /></div>
-    {{each source}}
-    {{if $value.path.startsWith('posts')}}
-    <div>
-      <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
-      <div>{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
-    </div>
-    <br />
-    {{/if}}
-    {{/each}}
-  </body>
-</html>
+{{extend './default'}}
+
+{{block 'body'}}
+{{@content}}
+<h2><a href="/about.html">About</a></h2>
+{{each source}}
+{{if $value.path.startsWith('posts')}}
+<div>
+  <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
+  <div>{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
+</div>
+<br />
+{{/if}}
+{{/each}}
+{{/block}}

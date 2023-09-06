@@ -1,2 +1,22 @@
-<a href="/">&lt; back to index</a>
-{{@content}}
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/base.css" />
+  <link rel="icon" href="/logo.svg" />
+  {{@head}}
+  {{block 'head'}}{{/block}}
+  <title>{{block 'title'}}Saurlax{{/block}}</title>
+</head>
+
+<body>
+  {{block 'body'}}
+  <a href="/">&lt; back to index</a>
+  {{@content}}
+  <a href="/">&lt; back to index</a>
+  {{/block}}
+</body>
+
+</html>
