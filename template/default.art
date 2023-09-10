@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/base.css" />
   <link rel="icon" href="/logo.svg" />
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?211111e1ef5c93cb5c6254b2ad17c685";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
   {{@head}}
   {{block 'head'}}{{/block}}
   <title>{{block 'title'}}Saurlax{{/block}}</title>
