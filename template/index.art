@@ -1,15 +1,16 @@
 {{extend './default'}}
 
 {{block 'body'}}
-{{@content}}
-<h2><a href="/about.html">About</a></h2>
-{{each source}}
-{{if $value.path.startsWith('posts')}}
-<div>
-  <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
-  <div>{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
+<div class="content">
+  {{@content}}
+  {{each source}}
+  {{if $value.path.startsWith('posts')}}
+  <div>
+    <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
+    <div>{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
+  </div>
+  <br />
+  {{/if}}
+  {{/each}}
 </div>
-<br />
-{{/if}}
-{{/each}}
 {{/block}}

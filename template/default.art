@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/base.css" />
+  <link rel="stylesheet" href="/default.css" />
   <link rel="icon" href="/logo.svg" />
   <script>
     var _hmt = _hmt || [];
@@ -21,11 +21,13 @@
 </head>
 
 <body>
+  {{include './layout/header'}}
   {{block 'body'}}
-  <a href="/">&lt; back to index</a>
-  {{@content}}
-  <a href="/">&lt; back to index</a>
+  <div class="content">
+    {{@content}}
+  </div>
   {{/block}}
+  {{include './layout/footer'}}
 </body>
 
 </html>
