@@ -2,8 +2,8 @@
 title: OpenJDK配置双击运行jar文件
 date: 2023-9-17 11:55:32
 draft: false
-categories: [笔记, 高中数学]
-tags: []
+categories: [Java]
+tags: [Java]
 ---
 高版本的OpenJDK似乎不能直接使用`javaw <jarfile>`的方式运行jar文件，需要指定`-jar`参数。而Windows默认的打开方式是直接传入文件名的，所以导致无法正常双击运行jar文件，需要手动加入`-jar`参数。
 
