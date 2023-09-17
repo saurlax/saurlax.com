@@ -35,6 +35,7 @@ a:hover {
 }
 
 .header-nav a {
+  font-size: 15px;
   color: #212121;
   text-decoration: none;
   padding: 4px 8px;
@@ -49,6 +50,7 @@ a:hover {
 .content {
   margin: auto;
   max-width: var(--max-width);
+  padding: 20px;
 }
 
 /* footer */

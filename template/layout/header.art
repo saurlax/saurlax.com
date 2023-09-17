@@ -4,8 +4,6 @@
       <img src="/logo.svg" alt="logo" />
     </a>
     <div class="header-nav">
-      <a href="/">Home</a>
-      <a href="/posts">Posts</a>
       <a href="/about">About</a>
       <a href="https://github.com/saurlax">GitHub</a>
 </header>
