@@ -17,7 +17,7 @@ a:hover {
 
 pre,
 code {
-  font-family: Consolas, 'Courier New', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
 code:not(pre code) {
