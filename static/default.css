@@ -58,39 +58,6 @@ code:not(pre code) {
   color: #757575;
 }
 
-/* loading */
-.loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loading img {
-  width: 60px;
-  animation: loading 0.8s infinite;
-}
-
-@keyframes loading {
-  0% {
-    filter: drop-shadow(0 0 0 #353535);
-  }
-
-  50% {
-    filter: drop-shadow(0 0 10px #353535);
-  }
-
-  100% {
-    filter: drop-shadow(0 0 0 transparent);
-  }
-}
-
 /* content */
 .content {
   margin: auto;

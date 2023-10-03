@@ -1,6 +1,3 @@
-<div class="loading">
-  <img src="/logo.svg" alt="loading" />
-</div>
 <header class="header">
   <div class="header-inner">
     <a class="header-logo" href="/">
