@@ -18,6 +18,12 @@ force = true
 
 [[redirects]]
 from = "https://g2.ink/"
-to = "https://www.saurlax.com/posts/g2ink"
+to = "https://www.saurlax.com/g2ink"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://gecynd.com/"
+to = "https://www.saurlax.com/gecynd"
 status = 301
 force = true

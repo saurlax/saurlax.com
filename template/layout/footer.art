@@ -1,8 +1,5 @@
 <footer class="footer">
   <div class="footer-inner">
     <div>© 2023 Saurlax</div>
-    <div>
-      文章采用<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY NC 4.0</a>许可
-    </div>
   </div>
 </footer>

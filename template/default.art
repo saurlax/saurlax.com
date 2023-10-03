@@ -15,6 +15,7 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+  <script src="/default.js"></script>
   {{@head}}
   {{block 'head'}}{{/block}}
   <title>{{block 'title'}}Saurlax{{/block}}</title>
