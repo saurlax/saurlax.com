@@ -1,0 +1,23 @@
+[[redirects]]
+from = "https://saurlax.netlify.com/*"
+to = "https://www.saurlax.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://wenhaoran.com/*"
+to = "https://www.saurlax.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.wenhaoran.com/*"
+to = "https://www.saurlax.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://g2.ink/"
+to = "https://www.saurlax.com/posts/g2ink"
+status = 301
+force = true
