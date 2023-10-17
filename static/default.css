@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  color: #212121;
 
   --max-width: 1000px;
 }
@@ -22,7 +24,6 @@ code {
 }
 
 code:not(pre code) {
-  font-size: 15px;
   padding: 0 2px;
   border-radius: 2px;
   background-color: #f3f3f3;
@@ -55,7 +56,6 @@ blockquote {
 }
 
 .header-nav a {
-  font-size: 15px;
   color: #212121;
   text-decoration: none;
   padding: 4px 8px;
