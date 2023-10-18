@@ -3,14 +3,14 @@
 {{block 'body'}}
 <div class="content">
   {{@content}}
-  {{each source}}
-  {{if $value.path.startsWith('posts')}}
+  {{each Object.values(source)
+    .filter(post => post.path.startsWith('posts'))
+    .sort((a,b) => a.date > b.date)}}
   <div>
     <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
     <div>{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
   </div>
   <br />
-  {{/if}}
   {{/each}}
 </div>
 {{/block}}

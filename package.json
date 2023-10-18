@@ -9,10 +9,10 @@
     "build": "vivia build"
   },
   "dependencies": {
-    "vivia": "^0.1.3",
-    "vivia-art-template": "^0.0.6",
+    "vivia": "^0.1.5",
+    "vivia-art-template": "^0.0.7",
     "vivia-front-matter": "^0.0.2",
     "vivia-katex": "^0.0.5",
-    "vivia-marked": "^0.0.6"
+    "vivia-marked": "^0.0.7"
   }
 }
