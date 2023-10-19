@@ -1,5 +1,5 @@
 ---
-title: SSSCTF2023 Writeup
+title: SSSCTF 2023 Writeup
 date: 2023-10-13 21:37:32
 draft: false
 categories: [CTF]
@@ -8,7 +8,7 @@ tags: [CTF]
 
 ## Pwn
 
-#### Test Your nc
+### Test Your nc
 
 根据题意，直接nc上环境读取flag文件即可。
 
