@@ -17,6 +17,22 @@ a:hover {
   color: #127bb8;
 }
 
+h2:hover,
+h3:hover,
+h4:hover,
+h5:hover,
+h6:hover {
+  text-decoration: underline;
+}
+
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  content: '# ';
+}
+
 pre,
 code {
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono";

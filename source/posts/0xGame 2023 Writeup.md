@@ -1,5 +1,5 @@
 ---
-title: 0xGame2023 Writeup
+title: 0xGame 2023 Writeup
 date: 2023-10-19 19:38:23
 draft: false
 categories: [CTF]
