@@ -22,13 +22,13 @@
 </head>
 
 <body>
-  {{include './layout/header'}}
+  {{include 'layouts/header'}}
   {{block 'body'}}
   <div class="content">
     {{@content}}
   </div>
   {{/block}}
-  {{include './layout/footer'}}
+  {{include 'layouts/footer'}}
 </body>
 
 </html>

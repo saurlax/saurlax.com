@@ -1,9 +1,14 @@
+.post {
+  margin: 20px 0;
+}
+
 .post-title {
   font-size: 1.1rem;
   font-weight: bold;
   margin-right: 10px;
 }
 
-.post-date {
+.post-abstract {
+  margin: 6px;
   color: #333333;
 }

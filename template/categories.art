@@ -1,0 +1,16 @@
+{{extend 'default'}}
+
+{{block 'body'}}
+<div class="content">
+  {{@content}}
+
+  {{each Object.values(source)
+  .filter(post => post.path.startsWith('posts'))
+  .map(post => post.metadata.categories)
+  .flat()
+  .filter((category, index, arr) => arr.indexOf(category) == index)
+  }}
+  <a href="/categories.html">{{$value}}</a>
+  {{/each}}
+</div>
+{{/block}}

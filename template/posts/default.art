@@ -1,4 +1,4 @@
-{{extend '../default'}}
+{{extend 'default'}}
 
 {{block 'title'}}
 {{metadata.title}} - Saurlax

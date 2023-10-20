@@ -1,4 +1,4 @@
-{{extend './default'}}
+{{extend 'default'}}
 
 {{block 'head'}}
 <link rel="stylesheet" href="/index.css" />
@@ -12,14 +12,13 @@
   .filter(post => post.path.startsWith('posts'))
   .sort((a, b) => Date.parse(b.metadata.date) - Date.parse(a.metadata.date))
   }}
-  <div>
+  <div class="post">
     <div>
       <a class="post-title" href="{{ $value.link }}">{{ $value.metadata.title }}</a>
-      <span class="post-date">{{$value.metadata.date.toLocaleString('zh', {hour12: false})}}</span>
+      <span class="post-date">{{$value.metadata.date.toLocaleDateString('zh')}}</span>
     </div>
     <div class="post-abstract">{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
   </div>
-  <br />
   {{/each}}
 </div>
 {{/block}}

@@ -4,6 +4,8 @@
       <img src="/logo.svg" alt="logo" />
     </a>
     <div class="header-nav">
-      <a href="/about.html">About</a>
+      <a href="/categories.html">分类</a>
+      <a href="/tags.html">标签</a>
+      <a href="/about.html">关于</a>
       <a href="https://github.com/saurlax">GitHub</a>
 </header>

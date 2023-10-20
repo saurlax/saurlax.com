@@ -1,0 +1,16 @@
+{{extend 'default'}}
+
+{{block 'body'}}
+<div class="content">
+  {{@content}}
+
+  {{each Object.values(source)
+  .filter(post => post.path.startsWith('posts'))
+  .map(post => post.metadata.tags)
+  .flat()
+  .filter((tag, index, arr) => arr.indexOf(tag) == index)
+  }}
+  <a href="/tags.html">{{$value}}</a>
+  {{/each}}
+</div>
+{{/block}}
