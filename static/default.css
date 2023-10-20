@@ -47,7 +47,15 @@ blockquote {
 /* header */
 .header {
   padding: 10px 20px;
-  background-color: #f3f3f3;
+  background-color: #f3f3f388;
+  border-bottom: 1px solid #e5e5e5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  backdrop-filter: blur(20px);
+
 }
 
 .header-inner {

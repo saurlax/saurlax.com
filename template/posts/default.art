@@ -1,17 +1,32 @@
 {{extend 'default'}}
 
+{{block 'head'}}
+<link rel="stylesheet" href="/posts.css" />
+{{/block}}
+
 {{block 'title'}}
 {{metadata.title}} - Saurlax
 {{/block}}
 
 {{block 'body'}}
-<div class="content">
-  <h1>{{ metadata.title }}</h1>
-  <div>
-    <div>Time: {{ metadata.date.toLocaleString() }}</div>
-    <div>Categories: {{ metadata.categories.join(', ') }}</div>
-    <div>Tags: {{ metadata.tags.join(', ') }}</div>
+<div class="post-info">
+  <h1 class="post-title">{{ metadata.title }}</h1>
+  <div class="post-details">
+    <span>
+      <i class="fa fa-clock-o"></i>
+      <span>{{ metadata.date.toLocaleString() }}</span>
+    </span>
+    <span>
+      <i class="fa fa-folder-open"></i>
+      <span>{{ metadata.categories.join(', ') }}</span>
+    </span>
+    <span>
+      <i class="fa fa-tags"></i>
+      <span>{{ metadata.tags.join(', ') }}</span>
+    </span>
   </div>
+</div>
+<div class="content">
   {{@content}}
 </div>
 {{/block}}

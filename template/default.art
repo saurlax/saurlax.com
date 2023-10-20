@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="baidu-site-verification" content="codeva-Crt8ZcpLr2" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="/default.css" />
   <link rel="icon" href="/logo.svg" />
   <script>
@@ -23,13 +24,29 @@
 </head>
 
 <body>
-  {{include 'layouts/header'}}
+  <header class="header">
+    <div class="header-inner">
+      <a class="header-logo" href="/">
+        <img src="/logo.svg" alt="logo" />
+      </a>
+      <div class="header-nav">
+        <a href="/categories.html">分类</a>
+        <a href="/tags.html">标签</a>
+        <a href="/links.html">友链</a>
+        <a href="https://github.com/saurlax">GitHub</a>
+      </div>
+    </div>
+  </header>
   {{block 'body'}}
   <div class="content">
     {{@content}}
   </div>
   {{/block}}
-  {{include 'layouts/footer'}}
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>© 2023 Saurlax</div>
+    </div>
+  </footer>
 </body>
 
 </html>

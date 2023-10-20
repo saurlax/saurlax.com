@@ -1,3 +1,3 @@
-# Welcome to saurlax.com
+# 👋 Hi, I'am Saurlax
 
-The site is being completely renovated. Check out the website generator I'm working on: [Vivia](https://vivia.saurlax.com/)
+小站正在努力装修中，来看看我自制的高自由度静态网页生成器吧：[Vivia](https://vivia.saurlax.com/)。

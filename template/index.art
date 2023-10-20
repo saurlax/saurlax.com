@@ -5,19 +5,22 @@
 {{/block}}
 
 {{block 'body'}}
-<div class="content">
+<div class="background">
   {{@content}}
+</div>
+<div class="content">
 
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts'))
   .sort((a, b) => Date.parse(b.metadata.date) - Date.parse(a.metadata.date))
   }}
-  <div class="post">
+  <div class="posts-item">
+    <a class="posts-item-title" href="{{ $value.link }}">{{ $value.metadata.title }}</a>
+    <div class="posts-item-abstract">{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
     <div>
-      <a class="post-title" href="{{ $value.link }}">{{ $value.metadata.title }}</a>
-      <span class="post-date">{{$value.metadata.date.toLocaleDateString('zh')}}</span>
+      <i class="fa fa-clock-o"></i>
+      <span>{{$value.metadata.date.toLocaleDateString('zh')}}</span>
     </div>
-    <div class="post-abstract">{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
   </div>
   {{/each}}
 </div>
