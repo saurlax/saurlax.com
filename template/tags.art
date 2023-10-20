@@ -1,6 +1,7 @@
 {{extend 'default'}}
 
 {{block 'body'}}
+<div class="placeholder"></div>
 <div class="content">
   {{@content}}
 

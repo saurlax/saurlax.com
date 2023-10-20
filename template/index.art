@@ -6,10 +6,12 @@
 
 {{block 'body'}}
 <div class="background">
-  {{@content}}
+  <h1>👋 Hi, I'am Saurlax</h1>
+  <div>「衣带渐宽终不悔，为伊消得人憔悴」</div>
 </div>
-<div class="content">
 
+<div class="content">
+  {{@content}}
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts'))
   .sort((a, b) => Date.parse(b.metadata.date) - Date.parse(a.metadata.date))

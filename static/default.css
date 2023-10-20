@@ -48,14 +48,14 @@ blockquote {
 .header {
   padding: 10px 20px;
   background-color: #f3f3f388;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e544;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 40px;
   backdrop-filter: blur(20px);
-
+  user-select: none;
 }
 
 .header-inner {
@@ -80,6 +80,10 @@ blockquote {
 
 .header-nav a:hover {
   color: #757575;
+}
+
+.placeholder {
+  height: 60px;
 }
 
 /* content */
