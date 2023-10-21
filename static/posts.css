@@ -13,7 +13,13 @@
   background-image: url("https://www.bing.com/th?id=OHR.CastellyGwyntUK_ZH-CN1219668479_1920x1080.webp");
 }
 
+.post-title {
+  text-align: center;
+}
+
 .post-details {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
 }
