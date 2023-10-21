@@ -1,8 +1,8 @@
 ---
 title: 从零开发一个Node.js CLI程序：以静态网站生成器为例
 date: 2023-10-21 22:30:07
-categories: []
-tags: []
+categories: [Node.js]
+tags: [Node.js, CLI]
 ---
 在进行 Node.js 开发时，我们常常会用到一些命令行界面（CLI）工具。例如 `npm create vite` 或 `hexo init <folder>`：
 
@@ -15,7 +15,7 @@ Ok to proceed? (y)
 √ Select a framework: » Vue
 √ Select a variant: » TypeScript
 
-Scaffolding project in D:\Projects\test\vite-project...
+Scaffolding project in path/to/vite-project...
 
 Done. Now run:
 
@@ -29,7 +29,6 @@ Done. Now run:
 $ hexo init my-site
 INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
 INFO  Install dependencies
-warning hexo > warehouse > cuid@2.1.8: Cuid and other k-sortable and non-cryptographic ids (Ulid, ObjectId, KSUID, all UUIDs) are all insecure. Use @paralleldrive/cuid2 instead.
 INFO  Start blogging with Hexo!
 ```
 
@@ -53,3 +52,5 @@ INFO  Start blogging with Hexo!
 
 ## 初始化项目
 
+
+// TODO
