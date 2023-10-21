@@ -1,6 +1,6 @@
 ---
 title: SSSCTF 2023 Writeup
-date: 2023-10-13 21:37:32
+date: 2023-10-13T21:37:32+08:00
 draft: false
 categories: [CTF]
 tags: [CTF]

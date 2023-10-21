@@ -1,6 +1,6 @@
 ---
 title: 0xGame 2023 Writeup
-date: 2023-10-19 19:38:23
+date: 2023-10-19T19:38:23+08:00
 draft: false
 categories: [CTF]
 tags: [CTF]

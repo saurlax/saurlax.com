@@ -14,7 +14,7 @@
   {{@content}}
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts'))
-  .sort((a, b) => Date.parse(b.metadata.date) - Date.parse(a.metadata.date))
+  .sort((a, b) => b.metadata.date - a.metadata.date)
   }}
   <div class="posts-item">
     <a class="posts-item-title" href="{{ $value.link }}">{{ $value.metadata.title }}</a>
