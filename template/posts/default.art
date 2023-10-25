@@ -1,5 +1,7 @@
 {{extend 'default'}}
 
+{{block 'keywords'}},{{metadata.tags.join(',')}}{{/block}}
+
 {{block 'head'}}
 <link rel="stylesheet" href="/posts.css" />
 {{/block}}
