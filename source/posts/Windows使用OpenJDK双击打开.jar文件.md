@@ -1,5 +1,5 @@
 ---
-title: OpenJDK配置双击运行jar文件
+title: Windows使用OpenJDK双击打开.jar文件
 date: 2023-9-17 11:55:32
 draft: false
 categories: [Java]

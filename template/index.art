@@ -13,7 +13,7 @@
 <div class="content">
   {{@content}}
   {{each Object.values(source)
-  .filter(post => post.path.startsWith('posts'))
+  .filter(post => post.path.startsWith('posts') && !post.metadata.draft)
   .sort((a, b) => b.metadata.date - a.metadata.date)
   }}
   <div class="posts-item">
@@ -21,7 +21,7 @@
     <div class="posts-item-abstract">{{@$value.content.replace(/<[^<>]+>/g, '').slice(0, 100)}}...</div>
     <div>
       <i class="fa fa-clock-o"></i>
-      <span>{{$value.metadata.date.toLocaleDateString('zh')}}</span>
+      <span>{{$value.metadata.date?.toLocaleDateString('zh')}}</span>
     </div>
   </div>
   {{/each}}

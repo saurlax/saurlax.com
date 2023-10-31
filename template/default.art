@@ -9,9 +9,9 @@
   <meta name="description" content="Saurlax的个人网站，分析技术心得、学习资料和各种实用工具。">
   <meta name="author" content="Saurlax">
   <meta name="generator" content="Vivia">
+  <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/default.css">
-  <link rel="icon" href="/logo.svg">
   <script>
     var _hmt = _hmt || [];
     (function () {

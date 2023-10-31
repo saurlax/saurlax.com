@@ -3,7 +3,7 @@ name: Vivia Starter
 
 # Build
 prerender:
-  '**/*.md': [front-matter, katex, marked]
+  '**/*.md': [front-matter, marked]
 
 render:
   '**/*.md': [art-template]
@@ -11,5 +11,6 @@ render:
 plugins:
   marked:
     highlight: true
+    katex: true
   art-template:
     minimize: true

@@ -1,5 +1,5 @@
 ---
-title: 从零开发一个Node.js CLI程序：以静态网站生成器为例
+title: 从零开发一个Node.js CLI程序
 date: 2023-10-21T22:30:07+08:00
 categories: [Node.js]
 tags: [Node.js, CLI]
