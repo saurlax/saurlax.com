@@ -1,6 +1,6 @@
 body {
   margin: 20px;
-  font-family: Consolas, sans-serif;
+  font-family: consolas, meslo, sans-serif;
   font-size: 14px;
   color: #212121;
 
@@ -58,9 +58,13 @@ blockquote {
   max-width: var(--max-width);
 }
 
+.header a {
+  float: left;
+  padding: 0 12px;
+}
 
-.placeholder {
-  height: 60px;
+.header a:not(:last-child) {
+  border-right: 1px dotted var(--primary);
 }
 
 /* content */
