@@ -10,6 +10,7 @@
   <meta name="author" content="Saurlax">
   <meta name="generator" content="Vivia">
   <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/meslo@1.0.0/meslo.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/default.css">
   <script>
@@ -29,28 +30,22 @@
 
 <body>
   <header class="header">
-    <div class="header-inner">
-      <a class="header-logo" href="/">
-        <img src="/logo.svg" alt="logo" />
-      </a>
-      <div class="header-nav">
-        <a href="/categories.html">分类</a>
-        <a href="/tags.html">标签</a>
-        <a href="/links.html">友链</a>
-        <a href="https://github.com/saurlax">GitHub</a>
-      </div>
-    </div>
+    <a href="/">首页</a>
+    <a href="/categories.html">分类</a>
+    <a href="/tags.html">标签</a>
+    <a href="/links.html">友链</a>
+    <a href="https://github.com/saurlax">
+      <i class="fa fa-github"></i>
+      <span>GitHub</span>
+    </a>
   </header>
   {{block 'body'}}
-  <div class="placeholder"></div>
   <div class="content">
     {{@content}}
   </div>
   {{/block}}
   <footer class="footer">
-    <div class="footer-inner">
-      <div>© 2023 Saurlax</div>
-    </div>
+    <div>© 2023 Saurlax</div>
   </footer>
 </body>
 

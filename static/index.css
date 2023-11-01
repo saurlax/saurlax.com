@@ -1,18 +1,3 @@
-.background {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-  padding-top: 80px;
-  height: 300px;
-  color: white;
-  text-shadow: 1px 1px 4px #212121;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://www.bing.com/th?id=OHR.GoldenEnchantments_ZH-CN9686531344_1920x1080.webp");
-}
-
 .posts-item {
   margin: 20px 0;
 }

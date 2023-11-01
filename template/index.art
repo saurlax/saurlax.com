@@ -5,12 +5,9 @@
 {{/block}}
 
 {{block 'body'}}
-<div class="background">
+<div class="content">
   <h1>👋 Hi, I'am Saurlax</h1>
   <div>「衣带渐宽终不悔，为伊消得人憔悴」</div>
-</div>
-
-<div class="content">
   {{@content}}
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts') && !post.metadata.draft)

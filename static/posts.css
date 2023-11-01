@@ -1,25 +1,10 @@
 .post-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 20px;
-  padding-top: 80px;
-  height: 300px;
-  color: white;
-  text-shadow: 1px 1px 4px #212121;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://www.bing.com/th?id=OHR.CastellyGwyntUK_ZH-CN1219668479_1920x1080.webp");
-}
-
-.post-title {
-  text-align: center;
+  max-width: var(--max-width);
+  margin: auto;
 }
 
 .post-details {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   column-gap: 10px;
 }

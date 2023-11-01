@@ -1,25 +1,26 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  margin: 20px;
+  font-family: Consolas, sans-serif;
+  font-size: 14px;
   color: #212121;
 
+  --primary: #008585;
   --max-width: 1000px;
 }
 
 a {
-  color: #116494;
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #127bb8;
+  text-decoration: underline;
 }
 
 ul,
 p {
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 h2:hover::after,
@@ -52,41 +53,11 @@ blockquote {
 
 /* header */
 .header {
-  padding: 10px 20px;
-  background-color: #f3f3f388;
-  border-bottom: 1px solid #e5e5e544;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  backdrop-filter: blur(20px);
-  user-select: none;
-}
-
-.header-inner {
   margin: auto;
+  padding: 20px;
   max-width: var(--max-width);
-  display: flex;
-  align-items: center;
 }
 
-.header-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 20px;
-}
-
-.header-nav a {
-  color: #212121;
-  text-decoration: none;
-  padding: 8px;
-  transition: color 0.2s ease;
-}
-
-.header-nav a:hover {
-  color: #757575;
-}
 
 .placeholder {
   height: 60px;
@@ -96,16 +67,10 @@ blockquote {
 .content {
   margin: auto;
   max-width: var(--max-width);
-  padding: 20px;
 }
 
 /* footer */
 .footer {
-  padding: 20px 40px;
-  background-color: #f3f3f3;
-}
-
-.footer-inner {
-  margin: auto;
   max-width: var(--max-width);
+  margin: auto;
 }
