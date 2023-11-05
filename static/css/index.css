@@ -1,0 +1,4 @@
+.posts-item {
+  display: flex;
+  gap: 16px;
+}

@@ -5,29 +5,20 @@
 <script src="/js/index.js"></script>
 {{/block}}
 
+{{block 'title'}}Archives - Saurlax{{/block}}
+
 {{block 'body'}}
 <div class="content">
   {{@content}}
-  <p>$ ls whatsnew</p>
+  <div>$ ls -a</div>
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts') && !post.metadata.draft)
   .sort((a, b) => b.metadata.date - a.metadata.date)
-  .slice(0, 10)
   }}
   <div class="posts-item">
     <span data-date="{{$value.metadata.date.valueOf()}}"></span>
     <a href="{{ $value.link }}">{{ $value.metadata.title }}</a>
   </div>
   {{/each}}
-  <a href="/archives.html">[view more]</a>
-  <p>$ ls projects</p>
-  <div>
-    <a href="https://vivia.saurlax.com">[Vivia]</a>
-    <span>Simple and fast static website generator</span>
-  </div>
-  <div>
-    <a href="https://gecynd.com">[Gecynd]</a>
-    <span>High degree of freedom voxel sandbox game engine</span>
-  </div>
 </div>
 {{/block}}

@@ -1,0 +1,51 @@
+:root {
+  --primary: #58aedf;
+
+  color: #efefef;
+  font-size: 14px;
+  font-family: 'fira code', consolas, sans-serif;
+}
+
+body {
+  margin: auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #212121;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2:hover::after,
+h3:hover::after,
+h4:hover::after,
+h5:hover::after,
+h6:hover::after {
+  content: ' #';
+}
+
+pre,
+code {
+  font-size: 0.95rem;
+  font-family: inherit;
+  line-height: initial;
+  overflow: auto;
+}
+
+code:not(pre code) {
+  padding: 2px 4px;
+  background-color: #ffffff33;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0 20px;
+  border-left: 4px solid #393939;
+  color: #c0c0c0;
+}

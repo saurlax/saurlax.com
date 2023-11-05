@@ -10,42 +10,42 @@
   <meta name="author" content="Saurlax">
   <meta name="generator" content="Vivia">
   <link rel="icon" href="/favicon.ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/meslo@1.0.0/meslo.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/default.css">
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?915ea9c7bdcfecf909d479cf295b40e3";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-  <script src="/default.js"></script>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/default.css">
+  <script src="https://hm.baidu.com/hm.js?915ea9c7bdcfecf909d479cf295b40e3"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+  <script src="/js/default.js"></script>
   {{@head}}
   {{block 'head'}}{{/block}}
   <title>{{block 'title'}}Saurlax{{/block}}</title>
 </head>
 
 <body>
+  <!-- header -->
   <header class="header">
-    <a href="/">首页</a>
-    <a href="/categories.html">分类</a>
-    <a href="/tags.html">标签</a>
-    <a href="/links.html">友链</a>
+    <a href="/">Home</a>
+    <a href="/categories.html">Categories</a>
+    <a href="/archives.html">Archives</a>
+    <a href="/friends.html">Friends</a>
     <a href="https://github.com/saurlax">
       <i class="fa fa-github"></i>
       <span>GitHub</span>
     </a>
   </header>
+
+  <!-- body -->
   {{block 'body'}}
   <div class="content">
     {{@content}}
   </div>
   {{/block}}
+  <p>$ <a href="/">cd ~</a></p>
+
+  <!-- footer -->
   <footer class="footer">
-    <div>© 2023 Saurlax</div>
+    <p>Copyright 2023 Saurlax</p>
   </footer>
 </body>
 
