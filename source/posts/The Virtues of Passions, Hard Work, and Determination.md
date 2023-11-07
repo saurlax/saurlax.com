@@ -1,7 +1,6 @@
 ---
 title: The Virtues of Passions, Hard Work, and Determination
 date: 2023-10-5 22:57:32
-draft: false
 categories: []
 tags: []
 ---

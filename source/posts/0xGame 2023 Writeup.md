@@ -1,7 +1,6 @@
 ---
 title: 0xGame 2023 Writeup
 date: 2023-10-30T19:38:23+08:00
-draft: false
 categories: [CTF]
 tags: [CTF]
 ---
@@ -146,9 +145,27 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 程序开启了 NX 保护并且没有后门函数，可以自己手动构造 syscall 来得到 shell。
 
-一般的程序都会使用到 libc，所以我们可以使用 libc 初始化函数` __libc_csu_init` 中的 gadgets 来修改参数（ret2csu）。
+注意到程序还提供了几个辅助函数用来构造 syscall：
 
+**set_rax**
 
+```assembly
+.text:0000000000401196                 endbr64
+.text:000000000040119A                 push    rbp
+.text:000000000040119B                 mov     rbp, rsp
+.text:000000000040119E                 mov     [rbp-4], edi
+.text:00000000004011A1                 mov     eax, [rbp-4]
+.text:00000000004011A4                 pop     rbp
+.text:00000000004011A5                 retn
+```
+
+**gadget**
+
+```assembly
+.text:00000000004011AE                 syscall                 ; LINUX -
+```
+
+可以
 
 ### [Week3] all-in-files
 
