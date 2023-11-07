@@ -184,37 +184,37 @@ if buf.strip() != b"":
 
 - 100 Continue. 代表服务器希望客户端继续请求或者忽略。需要客户端发送 `Expect: 100-continue`。
   
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     Expect: 100-continue\r\n\r\n
     ```
 - 206 Partial Content. 一个 HTTP 请求可以只请求部分内容，服务器也会返回部分内容。
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     Range: bytes=1-2\r\n\r\n
     ```
 - 416 Range Not Satisfiable. 上面的 `Range` 是一个合法的范围，那么不合法的范围呢？就是 416。
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     Range: bytes=114514-1919810\r\n\r\n
     ```
 - 304 Not Modified. 代表文件在指定条件下没有修改过，这里用 `If-Modified-Since`：
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     If-Modified-Since: Tue, 15 Aug 2023 17:03:04 GMT\r\n\r\n
     ```
 - 412 Precondition Failed. 这个 payload 使用了 ETag + If-Match，ETag 和对应的 web 资源对应，用来区分对应资源不同的版本。客户端可以利用这个信息来节省带宽。这里 [`If-Match`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Match) 则在尝试匹配这个 ETag，如果不匹配，那就返回 412。
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     If-Match: "bfc13a64729c4290ef5b2c2730249c88ca92d82d"\r\n\r\n
     ```
 - 413 Content Too Large. 不需要真正输入很大的 payload，把 `Content-length` 弄得很大就行：
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Host: example.com\r\n
     Content-length: 1145141919810\r\n\r\n
@@ -235,7 +235,7 @@ if buf.strip() != b"":
 
     `else` 上面只允许 `chunked`，所以可以：
 
-    ```
+    ```http
     GET / HTTP/1.1\r\n
     Transfer-Encoding: gzip\r\n
     Host: example.com\r\n\r\n

