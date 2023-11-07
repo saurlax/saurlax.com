@@ -219,7 +219,7 @@ if buf.strip() != b"":
     Host: example.com\r\n
     Content-length: 1145141919810\r\n\r\n
     ```
-- 414 URI Too Long. 大概需要很长的 URI 路径（但是又不能太长，否则 web 界面本体不会允许这样的响应）。内容详见 [414.txt](./414.txt)。
+- 414 URI Too Long. 大概需要很长的 URI 路径（但是又不能太长，否则 web 界面本体不会允许这样的响应）。内容详见 [414.txt](https://github.com/USTC-Hackergame/hackergame2023-writeups/blob/master/official/HTTP%20%E9%9B%86%E9%82%AE%E5%86%8C/414.txt)。
 
 - 501 Not Implemented. 代表服务器不支持此功能。Nginx 源代码中默认配置下唯一可能触发的地方是 <https://github.com/nginx/nginx/blob/a13ed7f5ed5bebdc0b9217ffafb75ab69f835a84/src/http/ngx_http_request.c#L2008>:
 
