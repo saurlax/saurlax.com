@@ -10,7 +10,6 @@
 {{block 'body'}}
 <div class="content">
   {{@content}}
-  <div>$ ls -a</div>
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts') && !post.metadata.draft)
   .sort((a, b) => b.metadata.date - a.metadata.date)

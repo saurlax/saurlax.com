@@ -2,13 +2,15 @@
 
 {{block 'head'}}
 <link rel="stylesheet" href="/css/index.css" />
-<script src="/js/index.js"></script>
 {{/block}}
 
 {{block 'body'}}
 <div class="content">
   {{@content}}
-  <p>$ ls whatsnew</p>
+
+  <div class="motd"></div>
+
+  <h2>What's new</h2>
   {{each Object.values(source)
   .filter(post => post.path.startsWith('posts') && !post.metadata.draft)
   .sort((a, b) => b.metadata.date - a.metadata.date)
@@ -20,7 +22,8 @@
   </div>
   {{/each}}
   <a href="/archives.html">[view more]</a>
-  <p>$ ls projects</p>
+
+  <h2>Projects</h2>
   <div>
     <a href="https://vivia.saurlax.com">[Vivia]</a>
     <span>Simple and fast static website generator</span>
@@ -30,4 +33,8 @@
     <span>High degree of freedom voxel sandbox game engine</span>
   </div>
 </div>
+{{/block}}
+
+{{block 'scripts'}}
+<script src="/js/index.js"></script>
 {{/block}}

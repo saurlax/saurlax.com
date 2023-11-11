@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="/css/default.css">
   <script src="https://hm.baidu.com/hm.js?915ea9c7bdcfecf909d479cf295b40e3"></script>
   <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
-  <script src="/js/default.js"></script>
   {{@head}}
   {{block 'head'}}{{/block}}
   <title>{{block 'title'}}Saurlax{{/block}}</title>
@@ -48,5 +47,8 @@
     <p>Copyright 2023 Saurlax</p>
   </footer>
 </body>
+
+<script src="/js/default.js"></script>
+{{block 'scripts'}}{{/block}}
 
 </html>

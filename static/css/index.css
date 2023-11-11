@@ -2,3 +2,22 @@
   display: flex;
   gap: 16px;
 }
+
+@keyframes blinking {
+  from {
+    visibility: hidden;
+  }
+
+  to {
+    visibility: visible;
+  }
+}
+
+.motd::after {
+  content: "_";
+  animation: blinking 1s steps(2) infinite;
+}
+
+h2 {
+  color: var(--primary);
+}

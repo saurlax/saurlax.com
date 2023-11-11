@@ -5,7 +5,6 @@
 {{block 'body'}}
 <div class="content">
   {{@content}}
-  <div>$ ls friends</div>
   {{each data.friends}}
   <div>
     <a href="{{$value[1]}}">[{{$value[0]}}]</a>
