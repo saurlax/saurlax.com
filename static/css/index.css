@@ -1,6 +1,7 @@
 .posts-item {
   display: flex;
   gap: 16px;
+  word-break: initial;
 }
 
 @keyframes blinking {
