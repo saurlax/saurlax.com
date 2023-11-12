@@ -4,6 +4,14 @@
   word-break: initial;
 }
 
+.posts-item span {
+  color: gray;
+}
+
+.posts-item a {
+  color: white;
+}
+
 @keyframes blinking {
   from {
     visibility: hidden;

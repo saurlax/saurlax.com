@@ -1,5 +1,6 @@
 /* header */
 .header {
+  margin: 20px 0;
   font-size: 0.9rem;
   display: flex;
   flex-wrap: wrap;
@@ -22,3 +23,10 @@
 }
 
 /* footer */
+.footer {
+  margin: 20px 0;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+}

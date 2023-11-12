@@ -40,11 +40,11 @@
     {{@content}}
   </div>
   {{/block}}
-  <p>$ <a href="/">cd ~</a></p>
 
   <!-- footer -->
   <footer class="footer">
-    <p>Copyright 2023 Saurlax</p>
+    <span><i class="fa fa-copyright"></i> 2023 Saurlax</span>
+    <span>Powered by Vivia</span>
   </footer>
 </body>
 
