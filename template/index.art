@@ -1,6 +1,7 @@
 {{extend 'default'}}
 
 {{block 'head'}}
+<meta name="description" content="Saurlax的个人网站，分析技术心得、学习资料和各种实用工具。">
 <link rel="stylesheet" href="/css/index.css" />
 {{/block}}
 

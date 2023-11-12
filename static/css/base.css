@@ -22,12 +22,13 @@ a:hover {
   text-decoration: underline;
 }
 
-h2:hover::after,
-h3:hover::after,
-h4:hover::after,
-h5:hover::after,
-h6:hover::after {
-  content: ' #';
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  color: var(--primary);
+  content: ' ¶';
 }
 
 pre,
