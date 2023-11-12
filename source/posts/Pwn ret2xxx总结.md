@@ -58,7 +58,7 @@ tags: [CTF]
 
 **gadgets1**
 
-可以将 rsp 之后的六个值依次存入 rbx，rbp，r12，r13，r14，r15。
+可以修改 rbx，rbp，r12，r13，r14，r15。
 
 ```assembly
 .text:00000000004012D6 loc_4012D6:                             ; CODE XREF: __libc_csu_init+35↑j
@@ -74,6 +74,9 @@ tags: [CTF]
 
 **gadgets2**
 
+配合 gadgets1，可以实现修改函数调用的前三个参数 rdx(r14)、rsi(r13) 和 edi(r12d) 的值，并执行 r15+rbx*8 处的函数。
+
+如果将 rbx 设置成 0，那么就是执行 r15 指向的函数。
 
 ```assembly
 .text:00000000004012C0 loc_4012C0:                             ; CODE XREF: __libc_csu_init+54↓j
@@ -85,3 +88,4 @@ tags: [CTF]
 .text:00000000004012D1                 cmp     rbp, rbx
 .text:00000000004012D4                 jnz     short loc_4012C0
 ```
+
