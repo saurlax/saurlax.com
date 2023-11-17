@@ -238,7 +238,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 
-可以发现，存在一个 read 溢出点。`strlen()` 判断字符串长度的方式是一直读取知道遇到 `\0`，所以我们直接往字符串前面填入 `\0` 即可。
+可以发现，存在一个 read 溢出点。`strlen()` 判断字符串长度的方式是一直读取直到遇到 `\0`，所以我们直接往字符串前面填入 `\0` 即可。
 
 ```python
 from pwn import *
