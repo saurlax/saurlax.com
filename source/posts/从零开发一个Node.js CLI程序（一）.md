@@ -1,5 +1,5 @@
 ---
-title: 从零开发一个Node.js CLI程序
+title: 从零开发一个Node.js CLI程序（一）
 date: 2023-10-21T22:30:07+08:00
 categories: [Node.js]
 tags: [Node.js, CLI]
@@ -50,7 +50,7 @@ INFO  Start blogging with Hexo!
 - 使用 `Promise` 实现异步渲染管线
 - 通过 `ES Module` 实现插件拓展功能
 
-最终的静态网站生成器成品已经发布到了 npm 上，并且已经基本具备了一个完整的静态网站生成器的各种功能。在此欢迎各位读者参考与使用：https://github.com/viviajs/vivia。
+最终的静态网站生成器成品已经发布到了 npm 上，并且已经基本具备了一个完整的静态网站生成器的各种功能。在此欢迎各位读者参考与使用：[Vivia](https://github.com/viviajs/vivia)。
 
 ## 初始化项目
 
@@ -151,7 +151,6 @@ Successfully created .eslintrc.json file in path/to/vivia
 
 ```javascript
 console.log('Hello Node.js CLI!')
-
 ```
 
 现在，我们可以编译并使用 `node` 命令执行我们 JavaScript 代码了：
@@ -198,7 +197,3 @@ Hello Node.js CLI!
 $ vivia    
 Hello Node.js CLI!
 ```
-
-
-
-// TODO
