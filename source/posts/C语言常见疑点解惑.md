@@ -5,10 +5,166 @@ categories: [C]
 tags: [C]
 ---
 
+## 运算符优先级
 
-## 运算符
-
-
+<table>
+  <tbody>
+    <tr>
+      <th>优先级</th>
+      <th>运算符</th>
+      <th>描述</th>
+      <th>结合性</th>
+    </tr>
+    <tr>
+      <th rowspan="6">1</th>
+      <td><code>++</code> <code>--</code></td>
+      <td>后缀自增与自减</td>
+      <td rowspan="6">从左到右</td>
+    </tr>
+    <tr>
+      <td><code>()</code></td>
+      <td>函数调用</td>
+    </tr>
+    <tr>
+      <td><code>[]</code></td>
+      <td>数组下标</td>
+    </tr>
+    <tr>
+      <td><code>.</code></td>
+      <td>结构体与联合体成员访问</td>
+    </tr>
+    <tr>
+      <td><code>-&gt;</code></td>
+      <td>结构体与联合体成员通过指针访问</td>
+    </tr>
+    <tr>
+      <td><code>(<i>type</i>){<i>list</i>}</code></td>
+      <td>复合字面量</td>
+    </tr>
+    <tr>
+      <th rowspan="8">2</th>
+      <td><code>++</code> <code>--</code></td>
+      <td>前缀自增与自减</td>
+      <td rowspan="8">从右到左</td>
+    </tr>
+    <tr>
+      <td><code>+</code> <code>-</code></td>
+      <td>一元加与减</td>
+    </tr>
+    <tr>
+      <td><code>!</code> <code>~</code></td>
+      <td>逻辑非与逐位非</td>
+    </tr>
+    <tr>
+      <td><code>(<i>type</i>)</code></td>
+      <td>转型</td>
+    </tr>
+    <tr>
+      <td><code>*</code></td>
+      <td>间接（解引用）</td>
+    </tr>
+    <tr>
+      <td><code>&amp;</code></td>
+      <td>取址</td>
+    </tr>
+    <tr>
+      <td><code>sizeof</code></td>
+      <td>取大小</td>
+    </tr>
+    <tr>
+      <td><code>_Alignof</code></td>
+      <td>对齐要求</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td><code>*</code> <code>/</code> <code>%</code></td>
+      <td>乘法、除法及余数</td>
+      <td rowspan="11">从左到右</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td><code>+</code> <code>-</code></td>
+      <td>加法及减法</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><code>&lt;&lt;</code> <code>&gt;&gt;</code></td>
+      <td>逐位左移及右移</td>
+    </tr>
+    <tr>
+      <th rowspan="2">6</th>
+      <td><code>&lt;</code> <code>&lt;=</code></td>
+      <td>分别为 &lt; 与 ≤ 的关系运算符</td>
+    </tr>
+    <tr>
+      <td><code>&gt;</code> <code>&gt;=</code></td>
+      <td>分别为 &gt; 与 ≥ 的关系运算符</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td><code>==</code> <code>!=</code></td>
+      <td>分别为 = 与 ≠ 关系</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td><code>&amp;</code></td>
+      <td>逐位与</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td><code>^</code></td>
+      <td>逐位异或（排除或）</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td><code>|</code></td>
+      <td>逐位或（包含或）</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td><code>&amp;&amp;</code></td>
+      <td>逻辑与</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td><code>||</code></td>
+      <td>逻辑或</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td><code>?:</code></td>
+      <td>三元条件</td>
+      <td rowspan="6">从右到左</td>
+    </tr>
+    <tr>
+      <th rowspan="5">14</th>
+      <td><code>=</code></td>
+      <td>简单赋值</td>
+    </tr>
+    <tr>
+      <td><code>+=</code> <code>-=</code></td>
+      <td>以和及差赋值</td>
+    </tr>
+    <tr>
+      <td><code>*=</code> <code>/=</code> <code>%=</code></td>
+      <td>以积、商及余数赋值</td>
+    </tr>
+    <tr>
+      <td><code>&lt;&lt;=</code> <code>&gt;&gt;=</code></td>
+      <td>以逐位左移及右移赋值</td>
+    </tr>
+    <tr>
+      <td><code>&amp;=</code> <code>^=</code> <code>|=</code></td>
+      <td>以逐位与、异或及或赋值</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td><code>,</code></td>
+      <td>逗号</td>
+      <td>从左到右</td>
+    </tr>
+  </tbody>
+</table>
 
 ## 数组
 
