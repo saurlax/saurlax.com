@@ -466,6 +466,47 @@ io.interactive()
 
 ```
 
+### [Week2] fmt1
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  char buf[256]; // [rsp+0h] [rbp-110h] BYREF
+  int v5; // [rsp+100h] [rbp-10h] BYREF
+  int v6; // [rsp+104h] [rbp-Ch]
+  int *v7; // [rsp+108h] [rbp-8h]
+
+  bufinit(argc, argv, envp);
+  v7 = &v5;
+  v6 = 0x2023;
+  v5 = 0x20FF;
+  printf("Input your content: ");
+  read(0, buf, 0x100uLL);
+  printf(buf);
+  if ( v6 == v5 )
+  {
+    puts("Congratulations! Now here is your shell!");
+    puts("And welcome to format string world!");
+    system("/bin/sh");
+  }
+  return 0;
+}
+```
+
+程序直接将用户输入的文本作为格式化字符串传入了 `printf` 函数中，存在格式化字符串漏洞。
+
+格式化字符串中存在以下可以写入输出字符数量的格式符：
+
+- 写入 4 字节：`%n`
+- 写入 2 字节：`%hn`
+- 写入 1 字节：`%hhn`
+
+此外，在 POSIX 拓展中存在可以指定参数顺序的格式符：`%n$`，代表使用第 n 个参数。
+
+根据 64 位函数调用传参约定，我们可以选择一个指定的参数顺序来指定要写入的地址指针。即分别为 `rsi, rdx, rcx, r8, r9, rsp, rsp+8, ...`。
+
+在这里，我们想要将 v5 的值更改为 0x2023，首先要得到 v5 的地址，即为 v7 的值。所以我们要写入的地址存储在 rsp+108h 中，也就是第 6+0x108/8=39 个参数。要写入的数据是 0x23，也就是 35。所以构造 payload 即为 `%35c%39$hhn`。
+
 ### [Week3] all-in-files
 
 > 一切皆文件是一种哲学
