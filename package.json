@@ -12,7 +12,7 @@
     "vivia": "^0.1.5",
     "vivia-art-template": "^0.0.7",
     "vivia-front-matter": "^0.0.2",
-    "vivia-katex": "^0.0.5",
+    "vivia-katex": "^0.0.6",
     "vivia-marked": "^0.0.7"
   }
 }
