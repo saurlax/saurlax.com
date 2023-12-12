@@ -68,3 +68,8 @@ table td {
 table th {
   background-color: #2e2e2e;
 }
+
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
