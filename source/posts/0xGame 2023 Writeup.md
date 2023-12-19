@@ -544,7 +544,7 @@ def exec_fmt(payload):
 
 使用 `auto.leak_stack(offset)` 可以读取某个参数的值。使用 `auto.write(addr, data)` 和 `auto.execute_writes()` 可以批量执行写入。
 
-因为 `main` 函数会被 `__libc_start_main` 调用，而 `__libc_start_main` 中存在 `main` 函数的地址。所以我们可以使用 gdb 在 rbp 附近寻找。在这里就是第 ($rbp+0x28-$rsp)/8+6=43 个参数。
+因为 `main` 函数会被 `__libc_start_main` 调用，而 `__libc_start_main` 中存在 `main` 函数的地址。所以我们可以使用 gdb 在 rbp 附近寻找。在这里就是第 (rbp+0x28-rsp)/8+6=43 个参数。
 
 ```python
 from pwn import *
