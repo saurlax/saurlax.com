@@ -35,7 +35,7 @@ Compiled by GNU CC version 9.4.0.
 
 可以看到，这个 libc 的版本是 2.31-0ubuntu9.9。
 
-### glibc-all-in-one
+## glibc-all-in-one
 
 有了 libc 之后，我们还需要对应的链接器 ld。可以通过 glibc-all-in-one 快速获取各个版本的 glibc 及其配套文件。
 
@@ -100,7 +100,7 @@ x - data.tar.xz
 
 之后，就可以看见在 libs 文件夹下新增了一个 `2.31-0ubuntu9.9_amd64` 文件夹，其中便是我们所需要的 glibc。
 
-### patchelf
+## patchelf
 
 使用 `--set-interpreter` 和 `--add-needed` 分别设置链接器和依赖即可。
 
