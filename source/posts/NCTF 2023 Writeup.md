@@ -178,10 +178,10 @@ app.listen(port, () => {
 
 ```json
 {
-    "username":"user",
-    "password":"user",
+    "username": "user",
+    "password": "user",
     "ban_username": {
-        "a":1
+        "a": 1
     }
 }
 ```
