@@ -1,4 +1,4 @@
-# Gecynd
+# Project Gecynd
 
 ![vulkan](https://img.shields.io/badge/gl-vulkan-red)
 ![rust](https://img.shields.io/badge/lang-rust-orange)
