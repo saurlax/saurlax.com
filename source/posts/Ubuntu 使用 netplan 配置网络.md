@@ -5,13 +5,13 @@ categories: []
 tags: []
 ---
 
-安装相关软件包
+安装相关软件包：
 
 ```bash
 $ sudo apt install network-manager wpasupplicant wireless-tools
 ```
 
-查看网卡信息
+查看网卡信息：
 
 ```bash
 $ ip a
@@ -29,21 +29,21 @@ $ ip a
     link/ether 00:21:6a:95:ed:80 brd ff:ff:ff:ff:ff:ff
 ```
 
-其中 lo 代表本地回环接口，en 代表有线以太网接口，wl 代表无线局域网接口，后面的 p1s0 分别代表网卡对应的第几个总线和插槽
+其中 lo 代表本地回环接口，en 代表有线以太网接口，wl 代表无线局域网接口，后面的 p1s0 分别代表网卡对应的第几个总线和插槽。
 
-如果有网卡没有识别到，可能是没有启用网卡
+如果有网卡没有识别到，可能是没有启用网卡：
 
 ```bash
 sudo ifconfig wlo1 up
 ```
 
-扫描无线网络
+扫描无线网络：
 
 ```bash
 $ sudo iwlist wlo1 scan
 ```
 
-编辑 netplan 配置文件
+编辑 netplan 配置文件：
 
 ```bash
 $ cd /etc/netplan/
@@ -53,7 +53,7 @@ $ ls
 
 如果需要配置有线网络，可以修改 `00-installer-config.yaml`，如果需要配置无线网络，可以修改 `00-installer-config-wifi.yaml`。不同系统可能默认的文件不一样，但只要在 `/etc/netplan/` 目录下都会被使用的。
 
-配置有线网络
+配置有线网络：
 
 ```yaml
 network:
@@ -78,7 +78,7 @@ network:
   version: 2
 ```
 
-配置无线网络
+配置无线网络：
 
 ```yaml
 network:
@@ -95,7 +95,7 @@ network:
         "ourwifi": {}
 ```
 
-测试并应用 netplan 配置
+测试并应用 netplan 配置：
 
 ```bash
 $ netplan try
@@ -121,4 +121,4 @@ $ ip a
        valid_lft forever preferred_lft forever
 ```
 
-其中 inet 和 inet6 即为获取到的 ip 地址
+其中 inet 和 inet6 即为获取到的 ip 地址。
