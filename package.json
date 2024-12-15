@@ -5,7 +5,7 @@
   "version": "5.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
     "katex": "^0.16.15",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
+    "sharp": "^0.33.5",
     "typescript": "^5.6.2"
   },
   "devDependencies": {

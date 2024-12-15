@@ -1,5 +1,4 @@
 import { defineCollection, z } from "astro:content";
-import { date } from "astro:schema";
 
 export const collections = {
   blogs: defineCollection({
