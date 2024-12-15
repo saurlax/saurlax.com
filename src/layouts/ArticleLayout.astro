@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="m-auto p-4 max-w-prose">
+  <main class="mx-auto max-w-prose">
     <h1 class="text-4xl font-bold">{title}</h1>
     <div class="text-base prose prose-truegray xl:text-xl">
       <slot />
@@ -30,6 +30,15 @@ const { title } = Astro.props;
     data-theme="preferred_color_scheme"
     data-lang="zh-CN"
     crossorigin="anonymous"
-    async
-  ></script>
+    async></script>
 </Layout>
+
+<style is:global>
+  .prose code {
+    white-space: pre-wrap;
+  }
+
+  .katex-display {
+    overflow-x: auto;
+  }
+</style>
