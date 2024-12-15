@@ -34,7 +34,7 @@ const { title } = Astro.props;
 </Layout>
 
 <style is:global>
-  .prose code {
+  .prose code:not(pre code) {
     white-space: pre-wrap;
   }
 
