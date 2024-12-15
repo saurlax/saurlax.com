@@ -2,20 +2,27 @@
   "name": "saurlax.com",
   "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "5.0.0",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@iconify-json/ri": "^1.2.2",
-    "astro": "^4.15.6",
-    "astro-icon": "^1.1.1",
-    "astro-pagefind": "^1.6.0",
+    "@astrojs/check": "^0.9.4",
+    "@iconify-json/ri": "^1.2.3",
+    "astro": "^5.0.5",
+    "astro-pagefind": "^1.7.0",
+    "dayjs": "^1.11.13",
+    "katex": "^0.16.15",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "@unocss/preset-icons": "^0.65.1",
+    "@unocss/preset-uno": "^0.65.1",
+    "@unocss/reset": "^0.65.1",
+    "unocss": "^0.65.1"
   }
 }

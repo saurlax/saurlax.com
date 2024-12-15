@@ -1,0 +1,22 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  tags?: string[];
+  href?: string;
+}
+
+const { title, description, tags, href } = Astro.props;
+---
+
+<div class="p-4 border-2 border-gray-200 rounded-lg">
+  <h2 class="text-xl font-bold"><a href={href}>{title}</a></h2>
+  <p>{description}</p>
+  <ul class="flex flex-wrap gap-1">
+    {
+      tags?.map((tag) => (
+        <li class="text-sm border border-blue rounded px-1">{tag}</li>
+      ))
+    }
+  </ul>
+</div>
