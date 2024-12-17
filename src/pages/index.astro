@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import dayjs from "dayjs";
 
-const blogsEntries = await getCollection("blogs");
+const blogsEntries = await getCollection("blog");
 ---
 
 <Layout>
@@ -24,13 +24,13 @@ const blogsEntries = await getCollection("blogs");
             title={entry.data.title}
             description={dayjs(entry.data.date).format("YYYY/MM/DD")}
             tags={entry.data.tags}
-            href={`/blogs/${entry.slug}`}
+            href={`/blog/${entry.slug}`}
           />
         ))
     }
   </div>
   <p class="text-center mt-4">
-    <a href="/blogs">
+    <a href="/blog">
       <button class="text-center py-2 px-4 border border-blue rounded">
         查看更多
       </button>

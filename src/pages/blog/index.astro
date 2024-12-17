@@ -4,14 +4,12 @@ import ListLayout from "../../layouts/ListLayout.astro";
 import Card from "../../components/Card.astro";
 import dayjs from "dayjs";
 
-const blogsEntries = await getCollection("blogs");
+const blogsEntries = await getCollection("blog");
 ---
 
 <ListLayout>
   <h1 class="m-10 text-2xl font-bold text-center">Blogs</h1>
-  <div
-    class="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-  >
+  <div class="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
     {
       blogsEntries
         .sort((a, b) => {
@@ -22,7 +20,7 @@ const blogsEntries = await getCollection("blogs");
             title={entry.data.title}
             description={dayjs(entry.data.date).format("YYYY/MM/DD")}
             tags={entry.data.tags}
-            href={`/blogs/${entry.slug}`}
+            href={`/blog/${entry.slug}`}
           />
         ))
     }
