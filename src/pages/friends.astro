@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import ListLayout from "../layouts/ListLayout.astro";
+import Card from "../components/Card.astro";
+import Comment from "../components/Comment.astro";
+
+const friendsEntries = await getCollection("friends");
+---
+
+<ListLayout title="Friends">
+  {
+    friendsEntries
+      .sort((a, b) => a.data.name.localeCompare(b.data.name))
+      .map((entry) => (
+        <Card
+          title={entry.data.name}
+          description={entry.data.description}
+          href={entry.data.url}
+        />
+      ))
+  }
+  <Comment slot="footer" />
+</ListLayout>

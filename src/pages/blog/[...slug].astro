@@ -3,18 +3,36 @@ import { getCollection } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 
 export async function getStaticPaths() {
-  const blogsEntries = await getCollection("blog");
-  return blogsEntries.map((entry) => ({
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 ---
 
-<ArticleLayout title={entry.data.title}>
-  <p>{entry.data.date}</p>
+<ArticleLayout
+  title={entry.data.title}
+  date={entry.data.date}
+  tags={entry.data.tags}
+>
   <Content />
+  <div slot="aside" class="sticky top-24 text-gray-6 text-sm">
+    {
+      headings.map((heading) => {
+        return (
+          <a
+            href={`#${heading.slug}`}
+            class="block hover:text-blue"
+            style={`margin-left: ${heading.depth - 2}em;`}
+          >
+            {heading.text}
+          </a>
+        );
+      })
+    }
+  </div>
 </ArticleLayout>

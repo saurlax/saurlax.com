@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import dayjs from "dayjs";
 
-const blogsEntries = await getCollection("blog");
+const blogEntries = await getCollection("blog");
 ---
 
 <Layout>
@@ -14,7 +14,7 @@ const blogsEntries = await getCollection("blog");
 
   <div class="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
     {
-      blogsEntries
+      blogEntries
         .sort((a, b) => {
           return b.data.date.getTime() - a.data.date.getTime();
         })

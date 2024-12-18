@@ -1,39 +1,52 @@
 ---
+import dayjs from "dayjs";
+import Comment from "../components/Comment.astro";
 import Layout from "./Layout.astro";
+import Tag from "../components/Tag.astro";
 
 interface Props {
   title?: string;
+  date?: Date;
+  tags?: string[];
+  comment?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, date, tags, comment: comment = true } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="mx-auto max-w-prose">
-    <h1 class="text-4xl font-bold">{title}</h1>
-    <div class="text-base prose prose-truegray xl:text-xl">
-      <slot />
+  <main class="prose-truegray dark:prose-invert">
+    <div class="my-10 text-base prose">
+      <h1 class="m-0">{title}</h1>
+      <div>
+        {date && dayjs(date).format("YYYY-MM-DD")}
+      </div>
+      <div>
+        {tags?.map((tag) => <Tag>{tag}</Tag>)}
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="text-base prose">
+        <slot />
+      </div>
+      <div class="flex-grow-1">
+        <slot name="aside" />
+      </div>
     </div>
   </main>
-  <script
-    is:inline
-    src="https://giscus.app/client.js"
-    data-repo="saurlax/saurlax"
-    data-repo-id="R_kgDOG_gYgA"
-    data-category="Announcements"
-    data-category-id="DIC_kwDOG_gYgM4Cju9B"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="0"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin="anonymous"
-    async></script>
+  {comment && <Comment />}
 </Layout>
 
 <style is:global>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: 6rem;
+  }
+
   .prose code:not(pre code) {
     white-space: pre-wrap;
   }
