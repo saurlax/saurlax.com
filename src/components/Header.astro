@@ -8,6 +8,27 @@
         <a href="/friends">Friends</a>
       </nav>
       <button class="i-ri-search-line"></button>
+      <button class="i-ri-sun-line" onclick="updateTheme()"></button>
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  function updateTheme(dark) {
+    const html = document.documentElement;
+    if (dark === true) {
+      html.classList.add("dark");
+    } else if (dark === false) {
+      html.classList.remove("dark");
+    } else {
+      html.classList.toggle("dark");
+    }
+  }
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  prefersDark.addEventListener("change", (e) => {
+    updateTheme(e.matches);
+  });
+
+  updateTheme(prefersDark.matches);
+</script>

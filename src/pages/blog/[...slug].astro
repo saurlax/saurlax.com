@@ -20,7 +20,7 @@ const { Content, headings } = await entry.render();
   tags={entry.data.tags}
 >
   <Content />
-  <div slot="aside" class="sticky top-24 text-gray-6 text-sm">
+  <div slot="aside" class="sticky top-24 text-sm text-gray-6 dark:text-gray-4">
     {
       headings.map((heading) => {
         return (

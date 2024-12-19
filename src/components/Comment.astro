@@ -14,3 +14,22 @@
   data-lang="zh-CN"
   crossorigin="anonymous"
   async></script>
+
+<script is:inline>
+  function updateGiscusTheme() {
+    const theme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    const iframe = document.querySelector("iframe.giscus-frame");
+    iframe?.contentWindow.postMessage(
+      { giscus: { setConfig: { theme } } },
+      "https://giscus.app"
+    );
+  }
+
+  const observer = new MutationObserver(updateGiscusTheme);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+</script>

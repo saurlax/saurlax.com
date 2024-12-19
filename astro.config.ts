@@ -9,6 +9,6 @@ export default defineConfig({
   integrations: [unocss({ injectReset: true }), pagefind()],
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [[rehypeKatex, { throwOnError: false }]],
+    rehypePlugins: [[rehypeKatex, { throwOnError: false, strict: false }]],
   },
 });
