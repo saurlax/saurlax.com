@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import ListLayout from "../../layouts/ListLayout.astro";
+import Card from "../../components/Card.astro";
+import dayjs from "dayjs";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  const tags = new Set<string>();
+  blogEntries.forEach((entry) => {
+    entry.data.tags.forEach((tag) => tags.add(tag));
+  });
+  return Array.from(tags).map((tag) => ({
+    params: { slug: tag },
+    props: {
+      tag,
+      entries: blogEntries.filter((entry) => entry.data.tags.includes(tag)),
+    },
+  }));
+}
+
+const { tag, entries } = Astro.props;
+---
+
+<ListLayout title={tag}>
+  {
+    entries
+      .sort((a, b) => {
+        return b.data.date.getTime() - a.data.date.getTime();
+      })
+      .map((entry) => (
+        <Card
+          title={entry.data.title}
+          description={dayjs(entry.data.date).format("YYYY/MM/DD")}
+          tags={entry.data.tags}
+          href={`/blog/${entry.slug}`}
+        />
+      ))
+  }
+</ListLayout>

@@ -15,6 +15,6 @@ const { title, description, tags, href } = Astro.props;
   <p class="text-xl font-bold"><a href={href}>{title}</a></p>
   <p>{description}</p>
   <p>
-    {tags?.map((tag) => <Tag>{tag}</Tag>)}
+    {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
   </p>
 </div>

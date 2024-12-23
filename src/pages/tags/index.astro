@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import ListLayout from "../../layouts/ListLayout.astro";
+import Card from "../../components/Card.astro";
+
+const blogEntries = await getCollection("blog");
+const tags = new Set<string>();
+blogEntries.forEach((entry) => {
+  entry.data.tags.forEach((tag) => tags.add(tag));
+});
+---
+
+<ListLayout title="Tags">
+  {
+    Array.from(tags)
+      .sort((a, b) => a.localeCompare(b))
+      .map((tag) => <Card title={tag} href={`/tags/${tag}`} />)
+  }
+</ListLayout>
