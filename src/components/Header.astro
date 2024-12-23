@@ -8,32 +8,42 @@
         <a href="/friends">Friends</a>
       </nav>
       <button class="i-ri-search-line"></button>
-      <button class="i-ri-sun-line" onclick="updateTheme()"></button>
+      <button class="i-ri-sun-line" onclick="toggleDark()"></button>
     </nav>
   </div>
 </header>
 
 <script is:inline>
-  function updateTheme(dark) {
-    const html = document.documentElement;
-    if (dark === true) {
-      html.classList.add("dark");
-    } else if (dark === false) {
-      html.classList.remove("dark");
-    } else {
-      html.classList.toggle("dark");
-    }
-  }
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-  prefersDark.addEventListener("change", (e) => {
-    updateTheme(e.matches);
+  Object.defineProperty(window, "dark", {
+    get() {
+      return document.documentElement.classList.contains("dark");
+    },
+    set(value) {
+      value = Boolean(value);
+      const html = document.documentElement;
+      if (value) {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+      sessionStorage.setItem("dark", value);
+      window.dispatchEvent(new CustomEvent("dark", { detail: value }));
+    },
   });
 
-  const theme = sessionStorage.getItem("theme");
-  if (theme) {
-    updateTheme(theme === "dark");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+  prefersDark.addEventListener("change", (e) => {
+    window.dark = e.matches;
+  });
+
+  const storageDark = sessionStorage.getItem("dark");
+  if (storageDark === "true") {
+    window.dark = true;
   } else {
-    updateTheme(prefersDark.matches);
+    window.dark = prefersDark.matches;
+  }
+
+  function toggleDark() {
+    window.dark = !window.dark;
   }
 </script>
