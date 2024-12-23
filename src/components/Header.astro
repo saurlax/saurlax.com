@@ -30,5 +30,10 @@
     updateTheme(e.matches);
   });
 
-  updateTheme(prefersDark.matches);
+  const theme = sessionStorage.getItem("theme");
+  if (theme) {
+    updateTheme(theme === "dark");
+  } else {
+    updateTheme(prefersDark.matches);
+  }
 </script>
