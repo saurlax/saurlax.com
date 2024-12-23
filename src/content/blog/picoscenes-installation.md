@@ -57,9 +57,7 @@ sudo apt-get install gdb
 sudo dpkg --remove --force-remove-reinstreq picoscenes-platform picoscenes-plugins-demo-echoprobe-forwarder picoscenes-all
 ```
 
-清楚之前的安装状态。
-
-安装完成后记得重启系统，并选择 `picoscenes-driver-modules-6.5.0-15-generic` 内核。
+清除之前的安装状态。
 
 ## 验证采集功能
 
