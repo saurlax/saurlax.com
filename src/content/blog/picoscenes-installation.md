@@ -1,7 +1,7 @@
 ---
 title: PicoScenes 安装使用
 date: 2024-12-11T17:51:33+08:00
-tags: []
+tags: [CSI]
 ---
 
 ## 设备信息
