@@ -1,5 +1,13 @@
 {
   "markdown.copyFiles.destination": {
     "src/content/**/*.md": "src/assets/images/image.jpg"
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "off"
+    }
   }
 }
