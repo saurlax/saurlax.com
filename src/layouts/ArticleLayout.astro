@@ -47,6 +47,10 @@ const { title, date, tags, comment: comment = true } = Astro.props;
     scroll-margin-top: 6rem;
   }
 
+  .prose {
+    overflow-wrap: break-word;
+  }
+
   .prose code:not(pre code) {
     white-space: pre-wrap;
   }
