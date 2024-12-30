@@ -13,7 +13,7 @@ export const collections = {
     type: "data",
     schema: z.object({
       name: z.string(),
-      url: z.string(),
+      href: z.string(),
       description: z.string().optional(),
     }),
   }),

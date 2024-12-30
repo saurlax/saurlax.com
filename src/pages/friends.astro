@@ -15,7 +15,7 @@ const friendsEntries = await getCollection("friends");
         <Card
           title={entry.data.name}
           description={entry.data.description}
-          href={entry.data.url}
+          href={entry.data.href}
         />
       ))
   }
