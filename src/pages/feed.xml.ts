@@ -15,10 +15,11 @@ export async function GET(context: APIContext) {
       .sort((a, b) => {
         return b.data.date.getTime() - a.data.date.getTime();
       })
+      .slice(0, 30)
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.date,
-        description: post.body.slice(0, 200),
+        description: post.body,
         link: `/blog/${post.slug}/`,
       })),
   });
