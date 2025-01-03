@@ -7,34 +7,42 @@ import Tag from "../components/Tag.astro";
 interface Props {
   title?: string;
   date?: Date;
+  lastUpdated?: Date;
   tags?: string[];
   comment?: boolean;
 }
 
-const { title, date, tags, comment: comment = true } = Astro.props;
+const { title, date, lastUpdated, tags, comment: comment = true } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="prose-truegray dark:prose-invert">
-    <div class="my-10 text-base prose">
-      <h1 class="m-0">{title}</h1>
-      <div>
-        {date && dayjs(date).format("YYYY-MM-DD")}
-      </div>
-      <div>
-        {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
+  <div class="flex justify-center gap-4">
+    <div class="w-full text-base prose prose-truegray dark:prose-invert">
+      <main>
+        <h1 class="m-0">{title}</h1>
+        <div>
+          {date && <span>{dayjs(date).format("YYYY-MM-DD")}</span>}
+          {
+            date && lastUpdated && (
+              <span>更新时间：{dayjs(lastUpdated).format("YYYY-MM-DD")}</span>
+            )
+          }
+        </div>
+        <div>
+          {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
+        </div>
+        <div class="text-base prose w-full">
+          <slot />
+        </div>
+      </main>
+      <div class="not-prose">
+        {comment && <Comment />}
       </div>
     </div>
-    <div class="flex gap-4">
-      <div class="text-base prose w-full">
-        <slot />
-      </div>
-      <div class="flex-grow-1 hidden md:block">
-        <slot name="aside" />
-      </div>
+    <div class="flex-grow-1 hidden md:block">
+      <slot name="aside" />
     </div>
-  </main>
-  {comment && <Comment />}
+  </div>
 </Layout>
 
 <style is:global>
@@ -64,5 +72,10 @@ const { title, date, tags, comment: comment = true } = Astro.props;
     width: auto;
     height: auto;
     overflow: auto;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
   }
 </style>
