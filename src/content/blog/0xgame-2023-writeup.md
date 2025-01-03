@@ -6,13 +6,13 @@ tags: [CTF]
 
 ## Pwn
 
-### [Week1] 找不到且不对劲的flag
+### [Week1] 找不到且不对劲的 flag
 
 > 这个黑不溜秋的框框是啥？
 >
-> 这是flag吗？
+> 这是 flag 吗？
 >
-> 我flag呢？
+> 我 flag 呢？
 
 根据题目描述，猜测 flag 被藏到了隐藏文件或者隐藏文件夹中。
 
@@ -77,9 +77,9 @@ conn.interactive()
 # 0xGame{W3lC0me_4b0rd_PWN_L4nd!_k20cu2c7}
 ```
 
-### [Week 1] 随便乱搞的shellcode
+### [Week 1] 随便乱搞的 shellcode
 
-> shell壳code码，这怎么就乱搞了？
+> shell 壳 code 码，这怎么就乱搞了？
 
 ```c
 int __cdecl main(int argc, const char **argv, const char **envp)
@@ -124,7 +124,7 @@ conn.interactive()
 # 0xGame{Try_to_Wr1t3_by_yourse1f!_an9d02cy}
 ```
 
-### [Week1] 高端的syscall
+### [Week1] 高端的 syscall
 
 > 系统调用是个好东西
 
@@ -290,7 +290,7 @@ io.interactive()
 
 ### [Week1] got-it
 
-> 延迟绑定，got表里存的究竟是啥
+> 延迟绑定，got 表里存的究竟是啥
 
 ```c
 int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
@@ -425,7 +425,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 
-题目开启了 Canary 保护，并且提供了后门函数。 
+题目开启了 Canary 保护，并且提供了后门函数。
 
 Canary 保护在进入函数时会在 ebp 前方添加一个 8 字节的随机数，当程序将要返回时，会比对随机数是否发生改变。如果发生了改变，说明被栈溢出修改了 retn 地址，从而结束进程，保护程序。为了防止 Canary 被意外输出，随机数的最低位始终是 `\0`。因此，如果程序存在一次可以写入后读取的操作，就可以一直覆盖到 Canary 的第一个 `\0`，从而得到 Canary 值，进行栈溢出。
 
@@ -594,9 +594,9 @@ int __cdecl main(int argc, const char **argv, const char **envp)
 }
 ```
 
-题目提供了 libc 的地址，需要得到栈的地址来实现栈溢出。这里通过 libc 中的 __environ 环境变量来得到栈地址。
+题目提供了 libc 的地址，需要得到栈的地址来实现栈溢出。这里通过 libc 中的 \_\_environ 环境变量来得到栈地址。
 
-__environ 是一个全局变量，他是一个环境变量数组，其指向的数据在栈上，可以通过这种方法得到栈的地址。
+\_\_environ 是一个全局变量，他是一个环境变量数组，其指向的数据在栈上，可以通过这种方法得到栈的地址。
 
 ```python
 from pwn import *
@@ -627,7 +627,7 @@ io.interactive()
 
 > 一切皆文件是一种哲学
 
-首先打开ida分析题目给的二进制文件。
+首先打开 ida 分析题目给的二进制文件。
 
 ```c
 int __cdecl main(int argc, const char **argv, const char **envp)
@@ -665,7 +665,7 @@ Input file id to write to: 2
 
 ```
 
-发现程序并没有返回任何内容。打开gdb进行调试，发现在读入 `filename` 的时候，读取的是 `/flag\n`，最终`fd`的值为 `-1`，推测是因为末尾的`\n`导致无法读取成功，最后因为标准输出流被关闭了，所以不会输出 `Failed to open file!` 提示用户。
+发现程序并没有返回任何内容。打开 gdb 进行调试，发现在读入 `filename` 的时候，读取的是 `/flag\n`，最终`fd`的值为 `-1`，推测是因为末尾的`\n`导致无法读取成功，最后因为标准输出流被关闭了，所以不会输出 `Failed to open file!` 提示用户。
 
 使用 `pwntools` 来输入 `/flag\0`，保证不会因为 `\n` 的原因而无法读取文件：
 
@@ -684,4 +684,3 @@ print(conn.recvline())
 
 # 0xGame{A11_1s_files_H3R3_1n9d2h9c}
 ```
-
