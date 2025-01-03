@@ -19,9 +19,7 @@ const { Content, headings } = await entry.render();
   title={entry.data.title}
   date={entry.data.date}
   tags={entry.data.tags}
+  headings={headings}
 >
   <Content />
-  <div slot="aside" class="sticky top-24">
-    <TOC headings={headings} />
-  </div>
 </ArticleLayout>
