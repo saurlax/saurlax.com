@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import TOC from "../../components/TOC.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
@@ -11,29 +12,16 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content, headings, remarkPluginFrontmatter } = await entry.render();
+const { Content, headings } = await entry.render();
 ---
 
 <ArticleLayout
   title={entry.data.title}
   date={entry.data.date}
-  lastUpdated={remarkPluginFrontmatter.lastUpdated}
   tags={entry.data.tags}
 >
   <Content />
-  <div slot="aside" class="sticky top-24 text-sm text-gray-6 dark:text-gray-4">
-    {
-      headings.map((heading) => {
-        return (
-          <a
-            href={`#${heading.slug}`}
-            class="block hover:text-blue"
-            style={`margin-left: ${heading.depth - 2}em;`}
-          >
-            {heading.text}
-          </a>
-        );
-      })
-    }
+  <div slot="aside" class="sticky top-24">
+    <TOC headings={headings} />
   </div>
 </ArticleLayout>

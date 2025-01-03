@@ -1,18 +1,17 @@
 ---
 import dayjs from "dayjs";
-import Comment from "../components/Comment.astro";
+import Comments from "../components/Comments.astro";
 import Layout from "./Layout.astro";
 import Tag from "../components/Tag.astro";
 
 interface Props {
   title?: string;
   date?: Date;
-  lastUpdated?: Date;
   tags?: string[];
-  comment?: boolean;
+  comments?: boolean;
 }
 
-const { title, date, lastUpdated, tags, comment: comment = true } = Astro.props;
+const { title, date, tags, comments = true } = Astro.props;
 ---
 
 <Layout title={title}>
@@ -21,12 +20,7 @@ const { title, date, lastUpdated, tags, comment: comment = true } = Astro.props;
       <main>
         <h1 class="m-0">{title}</h1>
         <div>
-          {date && <span>{dayjs(date).format("YYYY-MM-DD")}</span>}
-          {
-            date && lastUpdated && (
-              <span>更新时间：{dayjs(lastUpdated).format("YYYY-MM-DD")}</span>
-            )
-          }
+          {date && <span>{dayjs(date).format("YYYY/MM/DD")}</span>}
         </div>
         <div>
           {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
@@ -36,7 +30,7 @@ const { title, date, lastUpdated, tags, comment: comment = true } = Astro.props;
         </div>
       </main>
       <div class="not-prose">
-        {comment && <Comment />}
+        {comments && <Comments />}
       </div>
     </div>
     <div class="flex-grow-1 hidden md:block">
