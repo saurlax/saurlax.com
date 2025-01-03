@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import ListLayout from "../layouts/ListLayout.astro";
 import Card from "../components/Card.astro";
-import Comment from "../components/Comment.astro";
+import Comments from "../components/Comments.astro";
 
 const friendsEntries = await getCollection("friends");
 ---
@@ -19,5 +19,5 @@ const friendsEntries = await getCollection("friends");
         />
       ))
   }
-  <Comment slot="footer" />
+  <Comments slot="footer" />
 </ListLayout>
