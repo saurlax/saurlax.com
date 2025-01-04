@@ -179,9 +179,28 @@ $$
 
 注意除数不能为 0！
 
+### 多重和式
+
+**Chebyshev 单调不等式**：由
+
+$$
+\sum_{j=1}^n a_j \sum_{j=1}^n b_j = n\sum_{k=1}^n a_kb_k - \sum_{1\leq j<k\leq n}(a_k-a_k)(b_k-b_j)
+$$
+
+可得
+
+$$
+\begin{aligned}
+\sum_{j=1}^n a_j \sum_{j=1}^n b_j \leq n\sum_{k=1}^n a_kb_k, \quad a_1 \leq \cdots \leq a_n, b_1 \leq \cdots \leq b_n \\
+\sum_{j=1}^n a_j \sum_{j=1}^n b_j \geq n\sum_{k=1}^n a_kb_k, \quad a_1 \leq \cdots \leq a_n, b_1 \geq \cdots \geq b_n \\
+\end{aligned}
+$$
+
 ### 一般性的方法
 
 #### 扰动法
+
+将和表达成两种不同形式，并且分别化为待求值的（线性）多项式，最后通过解方程得到待求值。最常见的方式是分离出 $S_n$ 的首项和尾项。
 
 #### 成套方法
 
@@ -223,6 +242,3 @@ $$
 ## 生成函数
 
 ## 离散概率
-
-$$
-$$
