@@ -233,12 +233,122 @@ $$
 
 ## 整值函数
 
-## 数论
-
 ## 二项式系数
+
+特殊值：
+
+$$
+\binom r0 = 1, \binom r1 = r
+$$
+
+交换等式：
+
+$$
+\binom rk = \binom r{r-k}, \quad 0 \leq k \leq r
+$$
+
+吸收等式：
+
+$$
+\binom rk = \frac rk \binom {r-1}{k-1}, \quad k \neq 0
+$$
+
+加法等式：
+
+$$
+\binom rk = \binom {r-1}k + \binom {r-1}{k-1}
+$$
+
+相伴等式：
+
+$$
+(r-k) \binom rk = r \binom {r-1}k
+$$
 
 ## 特殊的数
 
-## 生成函数
+### 斯特林数
+
+#### 第二类斯特林数
+
+第二类斯特林数 $\left\{\begin{matrix} n \\ k \end{matrix}\right\}$ 表示将 $n$ 个元素分成 $k$ 个非空集合的方法数。
+
+$$
+\left\{\begin{matrix} n \\ k \end{matrix}\right\} =
+k\left\{\begin{matrix} n-1 \\ k \end{matrix}\right\} +
+\left\{\begin{matrix} n-1 \\ k-1 \end{matrix}\right\}
+$$
+
+其有以下特殊值：
+
+$$
+\begin{aligned}
+\left\{\begin{matrix} n \\ 0 \end{matrix}\right\} &=
+\left\{\begin{aligned}
+& 1, \quad n = 0 \\
+& 0, \quad n > 0
+\end{aligned}\right. \\
+
+\left\{\begin{matrix} n \\ 1 \end{matrix}\right\} &=
+\left\{\begin{aligned}
+& 0, \quad n = 0 \\
+& 1, \quad n > 0
+\end{aligned}\right. \\
+
+\left\{\begin{matrix} n \\ 2 \end{matrix}\right\} &= 2^{n-1}-1, \quad n > 0 \\
+
+\left\{\begin{matrix} n \\ n \end{matrix}\right\} &= 1, \quad n \geq 0 \\
+
+\left\{\begin{matrix} n \\ n-1 \end{matrix}\right\} &= \binom n2
+\end{aligned}
+$$
+
+注意第二类斯特拉数是无序的，即划分 ${A}\cup{B}={B}\cup{A}$。如果需要得到有序的结果，只需要乘以 $k!$ 即可，即
+
+$$
+\left\{\begin{matrix} n \\ k \end{matrix}\right\}k!
+$$
+
+如果允许空集，那么结果为
+
+$$
+\sum_{i=0}^k\left\{\begin{matrix} n \\ i \end{matrix}\right\}
+$$
+
+#### 第一类斯特林数
+
+第一类斯特林数 $\left[\begin{matrix} n \\ k \end{matrix}\right]$ 表示将 $n$ 个元素分成 $k$ 个轮换的方法数。例如下面都是同一个轮换：
+
+$$
+[A,B,C] = [B,C,A] = [C,A,B]
+$$
+
+其有以下递推式
+
+$$
+\left[\begin{matrix} n \\ k \end{matrix}\right] =
+(n-1)\left[\begin{matrix} n-1 \\ k \end{matrix}\right] +
+\left[\begin{matrix} n-1 \\ k-1 \end{matrix}\right]
+$$
+
+其有以下特殊值：
+
+$$
+\begin{aligned}
+\left[\begin{matrix} n \\ 1 \end{matrix}\right] &= (n-1)!, \quad n > 0 \\
+
+\left[\begin{matrix} n \\ n \end{matrix}\right] &= 1, \quad n \geq 0 \\
+
+\left[\begin{matrix} n \\ n-1 \end{matrix}\right] &= \binom n2
+\end{aligned}
+$$
+
+两类斯特林数之间的关系：
+
+$$
+\begin{aligned}
+\left[\begin{matrix} n \\ k \end{matrix}\right] &> \left\{\begin{matrix} n \\ k \end{matrix}\right\}, \quad k \geq 0 \\
+\end{aligned}
+$$
 
 ## 离散概率
