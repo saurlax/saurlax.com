@@ -265,6 +265,15 @@ $$
 (r-k) \binom rk = r \binom {r-1}k
 $$
 
+### 母函数
+
+$$
+\begin{aligned}
+\frac1{(1-z)^{n+1}} &= \sum_{k=0}^\infty \binom {n+k}n z^k, \quad n \geq 0 \\
+\frac{z^n}{(1-z)^{n+1}} &= \sum_{k=0}^\infty \binom kn z^k, \quad n \geq 0
+\end{aligned}
+$$
+
 ## 特殊的数
 
 ### 斯特林数
