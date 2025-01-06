@@ -1,7 +1,7 @@
 ---
 title: The Virtues of Passions, Hard Work, and Determination
 date: 2023-10-05T22:57:32+08:00
-tags: [大学英语]
+tags: [大学]
 ---
 
 Good morning, everyone. Today, I want to talk about three virtues that are not only essential for success in college but also hold significant value in our lives: Passions, Hardworking and Determination. These virtues are deeply rooted in both Chinese traditional culture and modern society, and they continue to shape our personal and collective journeys.

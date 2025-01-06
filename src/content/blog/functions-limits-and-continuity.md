@@ -1,9 +1,8 @@
 ---
-title: 函数、极限与连续
+title: 高等数学：函数、极限与连续
 date: 2023-11-13T23:32:16+08:00
-tags: [高等数学]
+tags: [大学]
 ---
-
 
 微积分是高等数学最重要的一个部分，而极限的概念则是微积分中最重要的基石。通过对函数连续性的研究，我们能够更加严谨地分析函数的变化过程。
 
@@ -241,13 +240,16 @@ minus A B
 - $o(1)\neq0$，无穷小量只代表不断趋近 0 的过程，本质是一个极限，并不能直接代表 0。
 
 **等价无穷小替换**：若当 $x\to x_0$ 时，$f(x)$ 与 $f_1(x)$，$g(x)$ 与 $g_1(x)$ 是等价无穷小量，且在点 $x_0$ 的去心邻域内，$f_1(x)\neq0,g_1(x)\neq0,\lim\limits_{x\to x_0}\frac{f_1(x)}{g_1(x)}$ 存在或为无穷，则 $\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f_1(x)}{g_1(x)}$。证明
+
 $$
 \because\lim\limits_{x\to x_0}\frac{f(x)}{f_1(x)}=\lim\limits_{x\to x_0}\frac{g_1(x)}{g(x)}=1, \\
 \therefore\lim\limits_{x\to x_0}\frac{f(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f(x)}{f_1(x)}\cdot \frac{f_1(x)}{g_1(x)}\cdot \frac{g_1(x)}{g(x)}=\lim\limits_{x\to x_0}\frac{f_1(x)}{g_1(x)}
 $$
+
 由此可知，等价无穷小可以直接在乘除法中进行替换，下面讨论等价无穷小在加减法中的替换规则：
 
 实际上，等价无穷小就是非常粗略的泰勒展开。等价无穷小只取了泰勒展开的首项。在乘除法中，因为始终是最大的项起作用，所以不会出现问题，例如
+
 $$
 \begin{aligned}
 \lim\limits_{x\to0}\frac{\sin x\tan x}{x^4}
@@ -255,7 +257,9 @@ $$
 &=\lim\limits_{x\to0}\frac{x^2+k_1x^3+k_2x^4+o(x^4)}{x^4}=\infty
 \end{aligned}
 $$
+
 而在加减法中，因为加减法可能会刚好把首项消掉，此时就需要比较第二项。而在等价无穷小中只包含首项，精度不足，所以就出现了问题。例如
+
 $$
 \begin{aligned}
 \lim\limits_{x\to0}\frac{\sin x-\tan x}{x^3}

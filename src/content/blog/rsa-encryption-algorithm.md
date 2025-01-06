@@ -1,7 +1,7 @@
 ---
 title: RSA 加密算法
 date: 2023-11-18T16:54:03+08:00
-tags: [CTF, Crypto, RSA]
+tags: [CTF]
 ---
 
 | 步骤     | 数学表示                           | 实现                  |

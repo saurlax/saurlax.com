@@ -1,13 +1,14 @@
 ---
-title: 交变电流
+title: 高中物理：交变电流
 date: 2022-12-29T19:50:19+08:00
-tags: [高中物理]
+tags: [高中]
 ---
+
 ## 交变电流的产生及其描述
 
 ### 交变电流
 
-方向随时间变化的电流，称为交变电流，简称交流，用字母AC表示，或符号“~”表示。
+方向随时间变化的电流，称为交变电流，简称交流，用字母 AC 表示，或符号“~”表示。
 
 电流方向随时间做周期性变化，是交流电最主要的特征，也是交流电与直流电最主要的区别。
 
@@ -17,15 +18,15 @@ tags: [高中物理]
 
 #### 方向变化
 
-* 一个周期内电流的方向变化两次
-* 线圈每次经过中性面时电流方向改变一次
+- 一个周期内电流的方向变化两次
+- 线圈每次经过中性面时电流方向改变一次
 
 #### 中性面
 
 匀强磁场中线圈平面与磁场方向垂直的位置称为中性面
 
-* 当线圈与中性面重合时，$S\perp B, \Phi=\Phi_m, e=0$，电流方向将改变
-* 当线圈与中性面垂直时，$S\parallel B, \Phi=0, \frac{\Delta\Phi}{\Delta t}$ 最大 $, e=E_m, i=I_m$，电流方向不变
+- 当线圈与中性面重合时，$S\perp B, \Phi=\Phi_m, e=0$，电流方向将改变
+- 当线圈与中性面垂直时，$S\parallel B, \Phi=0, \frac{\Delta\Phi}{\Delta t}$ 最大 $, e=E_m, i=I_m$，电流方向不变
 
 ### 正弦式交变电流的变化规律
 
@@ -33,12 +34,12 @@ tags: [高中物理]
 
 ##### 电动势的瞬间值表达式
 
-* 从中性面位置开始计时：$e=NBS\omega\sin\omega t=E_m\sin\omega t$
-* 从平行于磁感线位置开始计时：$e=MBS\omega\cos\omega t=E_m\cos\omega t$
+- 从中性面位置开始计时：$e=NBS\omega\sin\omega t=E_m\sin\omega t$
+- 从平行于磁感线位置开始计时：$e=MBS\omega\cos\omega t=E_m\cos\omega t$
 
 ##### 电流的瞬间值表达式
 
-* $i=I_m/sin\omega t$
+- $i=I_m/sin\omega t$
 
 线圈在匀强磁场中绕垂直于磁场的轴匀速转动时，所产生的正弦式交变电流与转轴的位置无关
 
@@ -58,22 +59,22 @@ $Tf=1, \omega=\frac{2\pi}{T}=2\pi f$
 
 最大的瞬时值，通常用 $I_m$、$U_m$、$E_m$ 表示
 
-* $E_m=NBS\omega=N\Phi_m\omega$
+- $E_m=NBS\omega=N\Phi_m\omega$
 
-* $I_m=\frac{E_m}{R+r}$
+- $I_m=\frac{E_m}{R+r}$
 
-* $U_m=I_mR$
+- $U_m=I_mR$
 
 #### 平均值
 
 交变电流的电学量对时间的平均，通常用符号 $\overline{I}$、$\overline{U}$、$\overline{E}$ 表示
 
-* $\overline{E}=n\frac{\Delta\Phi}{\Delta t}=Bl\overline{v}$
+- $\overline{E}=n\frac{\Delta\Phi}{\Delta t}=Bl\overline{v}$
 
 对于纯电阻电路，以下公式也适用
 
-* $\overline{I}=\frac{\overline{E}}{R+r}$
-* $\overline{U}=\overline{I}R$
+- $\overline{I}=\frac{\overline{E}}{R+r}$
+- $\overline{U}=\overline{I}R$
 
 #### 有效值
 
@@ -81,35 +82,35 @@ $Tf=1, \omega=\frac{2\pi}{T}=2\pi f$
 
 对于**正弦式交变电流**
 
-* $I=\frac{I_m}{\sqrt2}\approx0.707I_m$
+- $I=\frac{I_m}{\sqrt2}\approx0.707I_m$
 
-* $U=\frac{U_m}{\sqrt2}\approx0.707U_m$
-* $E=\frac{E_m}{\sqrt2}\approx0.707E_m$
+- $U=\frac{U_m}{\sqrt2}\approx0.707U_m$
+- $E=\frac{E_m}{\sqrt2}\approx0.707E_m$
 
 对于非正弦式交变电流，可利用有效值定义来计算有效值，对纯电阻电路以下式子仍成立
 
-* $I=\frac{E}{R+r}$
-* $U=IR$
+- $I=\frac{E}{R+r}$
+- $U=IR$
 
 ## 变压器
 
-* 原线圈：接在电源上的线圈，产生变化磁场
-* 副线圈：连接负载的线圈，产生感应电动势
-* 铁芯：硅钢叠合成的闭合框架，能增强磁场和集中磁感线
+- 原线圈：接在电源上的线圈，产生变化磁场
+- 副线圈：连接负载的线圈，产生感应电动势
+- 铁芯：硅钢叠合成的闭合框架，能增强磁场和集中磁感线
 
 #### 理想变压器
 
-* 无漏磁：磁感线全部集中于铁芯内，穿过每匝原线圈和副线圈的磁通量都相同
-* 无铜损：线圈的电阻不计，不产生热量，不引起电能损失
-* 无铁损：铁芯中涡电流忽略不计，不发热，不引起电能损失
+- 无漏磁：磁感线全部集中于铁芯内，穿过每匝原线圈和副线圈的磁通量都相同
+- 无铜损：线圈的电阻不计，不产生热量，不引起电能损失
+- 无铁损：铁芯中涡电流忽略不计，不发热，不引起电能损失
 
 ##### 基本规律
 
-* $P_\text{入}=P_\text{出}$
-* $\frac{U_1}{U_2}=\frac{n_1}{n_2}$
-* 只有一个副线圈时，$\frac{I_1}{I_2}=\frac{n_2}{n_1}$
-* 有多个副线圈时，$I_1U_1=I_2U_2+I_3U_3+\dots+I_nU_n$，$I_1n_1=I_2n_2+I_3n_3+\dots+I_nn_n$
-* $f_1=f_2$
+- $P_\text{入}=P_\text{出}$
+- $\frac{U_1}{U_2}=\frac{n_1}{n_2}$
+- 只有一个副线圈时，$\frac{I_1}{I_2}=\frac{n_2}{n_1}$
+- 有多个副线圈时，$I_1U_1=I_2U_2+I_3U_3+\dots+I_nU_n$，$I_1n_1=I_2n_2+I_3n_3+\dots+I_nn_n$
+- $f_1=f_2$
 
 原线圈两端的电压决定副线圈两端的电压，副线圈中的电流决定原线圈中的电流，功率按需分配
 
@@ -125,12 +126,12 @@ $Q=I^2Rt$
 
 $\Delta P=I^2R=(\frac{P}{U})^2R$，$\Delta U=IR=\frac{P}{U}R$
 
-* 减小输电线电阻
-* 减小输电电流
+- 减小输电线电阻
+- 减小输电电流
 
 ### 高压输电
 
-* $U_2-U_3=\Delta U=I_\text{线}R$
-* $I_2=I_3=I_\text{线}$
-* $P_2=P_3+\Delta P$
-* $\Delta P=I_\text{线}^2R=\frac{(\Delta U)^2}{R}$
+- $U_2-U_3=\Delta U=I_\text{线}R$
+- $I_2=I_3=I_\text{线}$
+- $P_2=P_3+\Delta P$
+- $\Delta P=I_\text{线}^2R=\frac{(\Delta U)^2}{R}$
