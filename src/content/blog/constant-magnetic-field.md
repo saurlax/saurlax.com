@@ -8,93 +8,131 @@ tags: [大学]
 
 **毕奥-萨伐尔定律**：电流元 $I\mathrm{d}l$ 产生的磁场在距离 $r$ 处的磁感应强度为
 
-$$d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\mathrm{d}l \times \vec{r}}{r^3}$$
+$$
+d\vec{B} = \frac{\mu_0}{4\pi} \frac{I\mathrm{d}l \times \vec{r}}{r^3}
+$$
 
 其中 $\mu_0 = 4\pi \times 10^{-7} \, \mathrm{T \cdot m/A}$ 为真空中的磁导率。
 
 由叠加原理，空间中任意一点的磁感应强度为
 
-$$\vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\mathrm{d}l \times \vec{r}}{r^3}$$
+$$
+\vec{B} = \frac{\mu_0}{4\pi} \int \frac{I\mathrm{d}l \times \vec{r}}{r^3}
+$$
 
 **无限长载流直导线的磁感应强度**：无限长载流直导线在距离 $r$ 处的磁感应强度为
 
-$$B = \frac{\mu_0 I}{2\pi r}$$
+$$
+B = \frac{\mu_0 I}{2\pi r}
+$$
 
 **载流圆线圈的磁感应强度**：载流圆线圈在轴线上距离 $x$ 处的磁感应强度为
 
-$$B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}$$
+$$
+B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}
+$$
 
 当 $x = 0$ 时，磁感应强度最大，为
 
-$$B_{\max} = \frac{\mu_0 I}{2R}$$
+$$
+B_{\max} = \frac{\mu_0 I}{2R}
+$$
 
 当 $x \gg R$ 时，磁感应强度近似为
 
-$$B = \frac{\mu_0 I R^2}{2 x^3}$$
+$$
+B = \frac{\mu_0 I R^2}{2 x^3}
+$$
 
 令线圈的磁矩为 $\vec{m} = IS\vec{n} = I\pi R^2 \vec{n}$，则当 $x \gg R$ 时，磁感应强度近似为
 
-$$B = \frac{\mu_0}{4\pi} \frac{2\vec{m}}{x^3}$$
+$$
+B = \frac{\mu_0}{4\pi} \frac{2\vec{m}}{x^3}
+$$
 
 与电偶极子的电场
 
-$$E = -\frac{1}{4\pi\varepsilon_0} \frac{2\vec{p}}{r^3}$$
+$$
+E = -\frac{1}{4\pi\varepsilon_0} \frac{2\vec{p}}{r^3}
+$$
 
 形式相同，说明载流线圈在远处产生的磁场与电偶极子在远处产生的电场类似。
 
 **无限长直螺线管的磁感应强度**：内部轴线上的磁感应强度为
 
-$$B = \mu_0 n I$$
+$$
+B = \mu_0 n I
+$$
 
 端口中心的磁感应强度为
 
-$$B = \frac{\mu_0 n I}{2}$$
+$$
+B = \frac{\mu_0 n I}{2}
+$$
 
 ## 磁场的高斯定理
 
 与电场线类似，沿曲面法线方向通过曲面的磁感应强度通量（磁通量）为
 
-$$\Phi_B = \int \vec{B} \cdot \mathrm{d}\vec{S}$$
+$$
+\Phi_B = \int \vec{B} \cdot \mathrm{d}\vec{S}
+$$
 
 单位为 $\mathrm{Wb}$（韦伯），$1 \, \mathrm{Wb} = 1 \, \mathrm{T \cdot m^2}$。
 
 电流元磁场的磁感应线都是圆心在电流元轴线上的同心圆，均为闭合曲线，所以通过任意闭合曲线的磁通量为零。
 
-$$\oint \vec{B} \cdot \mathrm{d}\vec{l} = 0$$
+$$
+\oint \vec{B} \cdot \mathrm{d}\vec{l} = 0
+$$
 
 其微分形式为
 
-$$\nabla \cdot \vec{B} = 0$$
+$$
+\nabla \cdot \vec{B} = 0
+$$
 
 ## 安培环路定理
 
 在静电场中，电场强度的旋度为零，所以电场强度是一个保守场。但在磁场中，磁感应线是闭合曲线，所以磁感应强度沿闭合曲线的线积分不为零
 
-$$\oint \vec{B} \cdot \mathrm{d}\vec{l} = \mu_0 I_{\text{enc}}$$
+$$
+\oint \vec{B} \cdot \mathrm{d}\vec{l} = \mu_0 I_{\text{enc}}
+$$
 
 其微分形式为
 
-$$\nabla \times \vec{B} = \mu_0 \vec{J}$$
+$$
+\nabla \times \vec{B} = \mu_0 \vec{J}
+$$
 
 ## 带电粒子在磁场中的运动
 
 **洛伦兹力**：带电粒子在磁场中受到的洛伦兹力为
 
-$$\vec{F} = q\vec{v} \times \vec{B}$$
+$$
+\vec{F} = q\vec{v} \times \vec{B}
+$$
 
 **带电粒子在磁场中的运动**：带电粒子在磁场中的运动轨迹为圆周运动，圆周运动的半径为
 
-$$r = \frac{mv}{qB}$$
+$$
+r = \frac{mv}{qB}
+$$
 
 **霍尔效应**：当导体中有电流通过时，导体两侧会产生电势差，这种现象称为霍尔效应。设导体的宽度为 $d$，电流为 $I$，磁感应强度为 $B$，则导体两侧的电势差为
 
-$$U = k \frac{IB}{d}$$
+$$
+U = k \frac{IB}{d}
+$$
 
 其中 $k = \frac{1}{nq}$，$n$ 为载流电子的密度，$q$ 为电子电荷。
 
 **质谱仪**：质谱仪是一种利用带电粒子在磁场中的圆周运动的性质来测定带电粒子的质量和电荷的仪器。
 
-$$\frac{q}{m} = \frac{2U}{B^2r^2}$$
+$$
+\frac{q}{m} = \frac{2U}{B^2r^2}
+$$
 
 可以根据两点间的距离求出荷质比。
 
@@ -102,17 +140,23 @@ $$\frac{q}{m} = \frac{2U}{B^2r^2}$$
 
 **安培力**：导线元 $I\mathrm{d}l$ 在磁场中受到的安培力为
 
-$$\mathrm{d}\vec{F} = I\mathrm{d}\vec{l} \times \vec{B}$$
+$$
+\mathrm{d}\vec{F} = I\mathrm{d}\vec{l} \times \vec{B}
+$$
 
 一段导线 $L$ 在磁场中受到的安培力为
 
-$$\vec{F} = \int_L d\vec{F} = \int_L I \mathrm{d} \vec{l} \times \vec{B}$$
+$$
+\vec{F} = \int_L d\vec{F} = \int_L I \mathrm{d} \vec{l} \times \vec{B}
+$$
 
 ## 磁介质
 
 对于各向同性的磁介质，磁介质与磁场的关系为
 
-$$\vec{B} = \mu_r \vec{B}_0$$
+$$
+\vec{B} = \mu_r \vec{B}_0
+$$
 
 其中 $\mu_r$ 为相对磁导率，$\vec{B}_0$ 为外加磁场。
 
@@ -120,49 +164,69 @@ $$\vec{B} = \mu_r \vec{B}_0$$
 
 **磁化强度**：可以用磁化强度 $\vec{M}$ 来描述磁介质的磁化程度，磁化强度的定义为
 
-$$\vec{M} = \frac{\Sigma \vec{m}_i}{\Delta V}$$
+$$
+\vec{M} = \frac{\Sigma \vec{m}_i}{\Delta V}
+$$
 
 其中 $\vec{m}_i$ 为磁介质中的分子磁矩，$\Delta V$ 为磁介质的体积。
 
 在一宏观小体积元内，每个分子可等效为一个电流强度为 $i$，半径为 $a$ 的圆电流环，可得磁化强度为
 
-$$|M| = \frac{|\Sigma m_i|}{\Delta V} = ni \pi a^2$$
+$$
+|M| = \frac{|\Sigma m_i|}{\Delta V} = ni \pi a^2
+$$
 
 其中 $n$ 为单位体积内的分子数。
 
 在磁介质中做一有向闭合路径 $\vec{l}$，则闭合路径 $\vec{l}$ 上的总磁化电流为
 
-$$I' = \oint_L \mathrm{d}I' = \oint_L \vec{M} \cdot \mathrm{d}\vec{l}$$
+$$
+I' = \oint_L \mathrm{d}I' = \oint_L \vec{M} \cdot \mathrm{d}\vec{l}
+$$
 
 对应面束缚电流密度为该表面处磁化强度沿法线方向的分量
 
-$$\vec{j}' = \vec{M} \times \vec{n}$$
+$$
+\vec{j}' = \vec{M} \times \vec{n}
+$$
 
 磁介质中的磁感应强度为自由电流的磁感应强度 $B_0$ 和磁化电流的磁感应强度 $B'$ 的矢量和
 
-$$\vec{H} = \vec{B}_0 + \vec{B}'$$
+$$
+\vec{H} = \vec{B}_0 + \vec{B}'
+$$
 
 **磁场强度**：磁场强度 $\vec{H}$ 定义为
 
-$$\vec{H} = \frac{\vec{B}}{\mu_0} - \vec{M}$$
+$$
+\vec{H} = \frac{\vec{B}}{\mu_0} - \vec{M}
+$$
 
 **磁介质中磁场的安培环路定理**：磁介质中的磁场强度满足
 
-$$\oint \vec{H} \cdot \mathrm{d}\vec{l} = \Sigma I_0$$
+$$
+\oint \vec{H} \cdot \mathrm{d}\vec{l} = \Sigma I_0
+$$
 
 其中磁场强度 $\vec{H}$ 的单位为 $\mathrm{A \cdot m^{-1}}$。
 
 一般地，任一点的磁化强度 $\vec{M}$ 与磁场强度 $\vec{H}$ 之间的关系为
 
-$$\vec{M} = \chi_m \vec{H}$$
+$$
+\vec{M} = \chi_m \vec{H}
+$$
 
 各向同性磁介质的相对磁导率 $\mu_r$ 与磁化率 $\chi_m$ 之间的关系为
 
-$$\mu_r = 1 + \chi_m$$
+$$
+\mu_r = 1 + \chi_m
+$$
 
 因此
 
-$$\vec{B} = \mu_0 \mu_r \vec{H} = \mu \vec{H}$$
+$$
+\vec{B} = \mu_0 \mu_r \vec{H} = \mu \vec{H}
+$$
 
 其中 $\mu = \mu_0 \mu_r$ 为磁导率。
 

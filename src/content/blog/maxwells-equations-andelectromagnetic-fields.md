@@ -8,13 +8,17 @@ tags: [大学]
 
 **位移电流**：当电场强度随时间变化时，电场强度的变化率 $\frac{\partial \vec{E}}{\partial t}$ 产生的感生电场，称为位移电流，其大小为
 
-$$I_D = \frac{\mathrm{d}\Phi_D}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\oiint_S \vec{D} \cdot \mathrm{d}\vec{S} = \oiint_S \frac{\partial \vec{D}}{\partial t} \cdot \mathrm{d}\vec{S}$$
+$$
+I_D = \frac{\mathrm{d}\Phi_D}{\mathrm{d}t} = \frac{\mathrm{d}}{\mathrm{d}t}\oiint_S \vec{D} \cdot \mathrm{d}\vec{S} = \oiint_S \frac{\partial \vec{D}}{\partial t} \cdot \mathrm{d}\vec{S}
+$$
 
 其中，$\vec{J}_D = \frac{\partial \vec{D}}{\partial t}$ 为位移电流密度。
 
 传导电流与位移电流之和为全电流，全电流安培环路定理为
 
-$$\oint_L \vec{H} \cdot \mathrm{d}\vec{r} = I + I_D$$
+$$
+\oint_L \vec{H} \cdot \mathrm{d}\vec{r} = I + I_D
+$$
 
 ## 麦克斯韦方程组
 
@@ -36,7 +40,9 @@ $$
 
 均匀各向同性电磁介质也适用，只需带入
 
-$$\vec{D} = \varepsilon \vec{E}, \quad \vec{B} = \mu \vec{H}, \quad \vec{J} = \sigma \vec{E}$$
+$$
+\vec{D} = \varepsilon \vec{E}, \quad \vec{B} = \mu \vec{H}, \quad \vec{J} = \sigma \vec{E}
+$$
 
 麦克斯韦方程组微分形式为
 
@@ -53,7 +59,9 @@ $$
 
 由麦克斯韦方程组微分形式中的 $\frac{\partial \vec{B}}{\partial t}$ 和 $\frac{\partial \vec{D}}{\partial t}$ 可知，随时间变化的磁场会激发有旋电场，随时间变化的电场会激发有旋磁场。当空间中无电荷、无传导电流时，由
 
-$$\vec{D} = \varepsilon \vec{E}, \quad \vec{B} = \mu \vec{H}$$
+$$
+\vec{D} = \varepsilon \vec{E}, \quad \vec{B} = \mu \vec{H}
+$$
 
 可将麦克斯韦方程组化简为
 
@@ -88,11 +96,15 @@ $$
 
 电磁波的能流密度为
 
-$$\vec{S} = \frac{1}{\mu_0} \vec{E} \times \vec{B} = \vec{E} \times \vec{H}$$
+$$
+\vec{S} = \frac{1}{\mu_0} \vec{E} \times \vec{B} = \vec{E} \times \vec{H}
+$$
 
 其大小为
 
-$$S = \frac{1}{\mu_0} EB = c\varepsilon_0 E^2 = cw$$
+$$
+S = \frac{1}{\mu_0} EB = c\varepsilon_0 E^2 = cw
+$$
 
 电磁波以速度 $c$ 传播时，其能量也以速度 $c$ 传播。
 
@@ -100,10 +112,14 @@ $$S = \frac{1}{\mu_0} EB = c\varepsilon_0 E^2 = cw$$
 
 电磁场的电磁势为
 
-$$\vec{A} = \frac{\mu_0}{4\pi} \iiint_V \frac{\vec{J}}{r} \mathrm{d}V, \quad \varphi = \frac{1}{4\pi\varepsilon_0} \iiint_V \frac{\rho}{r} \mathrm{d}V$$
+$$
+\vec{A} = \frac{\mu_0}{4\pi} \iiint_V \frac{\vec{J}}{r} \mathrm{d}V, \quad \varphi = \frac{1}{4\pi\varepsilon_0} \iiint_V \frac{\rho}{r} \mathrm{d}V
+$$
 
 其中，$\vec{A}$ 为磁矢势，$\varphi$ 为电势。
 
 电磁场的电磁场强度和磁场强度分别为
 
-$$\vec{E} = -\nabla \varphi - \frac{\partial \vec{A}}{\partial t}, \quad \vec{B} = \nabla \times \vec{A}$$
+$$
+\vec{E} = -\nabla \varphi - \frac{\partial \vec{A}}{\partial t}, \quad \vec{B} = \nabla \times \vec{A}
+$$
