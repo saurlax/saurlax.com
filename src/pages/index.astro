@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import dayjs from "dayjs";
+import ArticleCard from "../components/ArticleCard.astro";
 
 const blogEntries = await getCollection("blog");
 ---
@@ -17,14 +16,7 @@ const blogEntries = await getCollection("blog");
           return b.data.date.getTime() - a.data.date.getTime();
         })
         .slice(0, 10)
-        .map((entry) => (
-          <Card
-            title={entry.data.title}
-            description={dayjs(entry.data.date).format("YYYY/MM/DD")}
-            tags={entry.data.tags}
-            href={`/blog/${entry.slug}`}
-          />
-        ))
+        .map((entry) => <ArticleCard entry={entry} />)
     }
   </div>
   <p class="text-center mt-4">

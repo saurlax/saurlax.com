@@ -11,9 +11,13 @@ interface Props {
 const { title, description, tags, href } = Astro.props;
 ---
 
-<div class="p-4 border-2 border-gray-200 rounded-lg">
+<div
+  class="p-4 border rounded-lg
+ border-gray-2 bg-white
+ dark:border-gray-8 dark:bg-gray-9"
+>
   <p class="text-xl font-bold"><a href={href}>{title}</a></p>
-  <p>{description}</p>
+  <p class="text-sm text-gray-6 dark:text-gray-4">{description}</p>
   <p>
     {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}
   </p>

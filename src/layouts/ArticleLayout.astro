@@ -9,12 +9,21 @@ import TOC from "../components/TOC.astro";
 interface Props {
   title?: string;
   date?: Date;
+  wordCount?: number;
   tags?: string[];
   headings?: MarkdownHeading[];
   comments?: boolean;
 }
 
-const { title, date, tags, headings, comments = true } = Astro.props;
+const { title, date, wordCount, tags, headings, comments = true } = Astro.props;
+
+const description: string[] = [];
+if (date) {
+  description.push(dayjs(date).format("MMM DD, YYYY"));
+}
+if (wordCount) {
+  description.push(`${wordCount} 字`);
+}
 ---
 
 <Layout title={title}>
@@ -22,8 +31,8 @@ const { title, date, tags, headings, comments = true } = Astro.props;
     <div class="w-full text-base prose prose-truegray dark:prose-invert">
       <main>
         <h1 class="m-0">{title}</h1>
-        <div>
-          {date && <span>{dayjs(date).format("YYYY/MM/DD")}</span>}
+        <div class="text-sm text-gray-6 dark:text-gray-4">
+          {description.join(" · ")}
         </div>
         <div>
           {tags?.map((tag) => <Tag href={`/tags/${tag}`}>{tag}</Tag>)}

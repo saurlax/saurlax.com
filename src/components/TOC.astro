@@ -9,16 +9,18 @@ const { headings } = Astro.props;
 ---
 
 <div class="text-sm text-gray-6 dark:text-gray-4">
+  <div class="text-black dark:text-white font-bold text-base">目录</div>
   {
     headings.map((heading) => {
       return (
-        <a
-          href={`#${heading.slug}`}
-          class="block hover:text-blue"
-          style={`margin-left: ${heading.depth - 2}em;`}
-        >
-          {heading.text}
-        </a>
+        <div style={`padding-left: ${heading.depth - 2}rem`}>
+          <a
+            href={`#${heading.slug}`}
+            class=" hover:text-black dark:hover:text-white"
+          >
+            {heading.text}
+          </a>
+        </div>
       );
     })
   }

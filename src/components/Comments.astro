@@ -1,5 +1,6 @@
 <script
   is:inline
+  class="giscus-script"
   src="https://giscus.app/client.js"
   data-repo="saurlax/saurlax"
   data-repo-id="R_kgDOG_gYgA"
@@ -27,4 +28,11 @@
   window.addEventListener("dark", (e) => {
     updateGiscusTheme(e.detail ? "dark" : "light");
   });
+
+  document
+    .querySelector(".giscus-script")
+    .setAttribute(
+      "data-theme",
+      document.documentElement.classList.contains("dark") ? "dark" : "light"
+    );
 </script>

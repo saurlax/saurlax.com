@@ -18,6 +18,7 @@ const { Content, headings } = await entry.render();
 <ArticleLayout
   title={entry.data.title}
   date={entry.data.date}
+  wordCount={entry.body.length}
   tags={entry.data.tags}
   headings={headings}
 >
