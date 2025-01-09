@@ -3,4 +3,23 @@ import Card from "../components/Card.astro";
 import ListLayout from "../layouts/ListLayout.astro";
 ---
 
-<ListLayout title="Projects"> Nothing here yet... </ListLayout>
+<ListLayout title="Projects">
+  <Card
+    title="Gecynd"
+    description="Yet another voxel sandbox game"
+    tags={["Rust", "Bevy"]}
+    href="https://github.com/saurlax/gecynd"
+  />
+  <Card
+    title="WiGuard"
+    description="Wireless Sensing based Health Monitoring System"
+    tags={["ESP32", "Nuxt"]}
+    href="https://github.com/saurlax/wiguard"
+  />
+  <Card
+    title="NetVigil"
+    description="Network Traffic Monitoring and Analysis based Local Threat Intelligence Center"
+    tags={["Go", "Vue"]}
+    href="https://github.com/saurlax/netvigil"
+  />
+</ListLayout>

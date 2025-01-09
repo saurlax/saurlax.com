@@ -4,16 +4,24 @@ import ListLayout from "../../layouts/ListLayout.astro";
 import Card from "../../components/Card.astro";
 
 const blogEntries = await getCollection("blog");
-const tags = new Set<string>();
+const tags: Record<string, number> = {};
 blogEntries.forEach((entry) => {
-  entry.data.tags.forEach((tag) => tags.add(tag));
+  entry.data.tags.forEach((tag) => {
+    tags[tag] = (tags[tag] || 0) + 1;
+  });
 });
 ---
 
 <ListLayout title="Tags">
   {
-    Array.from(tags)
+    Object.keys(tags)
       .sort((a, b) => a.localeCompare(b))
-      .map((tag) => <Card title={tag} href={`/tags/${tag}`} />)
+      .map((key) => (
+        <Card
+          title={key}
+          description={`${tags[key]} 篇`}
+          href={`/tags/${key}`}
+        />
+      ))
   }
 </ListLayout>
