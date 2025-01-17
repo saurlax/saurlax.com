@@ -1,7 +1,7 @@
 ---
 title: Koishi 插件开发
 date: 2024-09-06T11:34:57+08:00
-tags: [Koishi, Node.js]
+tags: [Node.js]
 ---
 
 Koishi 是一款跨平台可拓展的聊天机器人框架，支持 QQ、飞书、Telegram、Discord 等多个平台。本文主要简单介绍如何开发 Koishi 插件，以及插件的基本结构和使用方法。

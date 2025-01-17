@@ -1,7 +1,7 @@
 ---
 title: FeitCSI 安装使用
 date: 2024-12-23T16:26:50+08:00
-tags: []
+tags: [IoT]
 ---
 
 FeitCSI 是一个支持 AX210 系列网卡的开源 CSI 采集工具，相比 PicoScenes 在设备和许可证上的限制更小。

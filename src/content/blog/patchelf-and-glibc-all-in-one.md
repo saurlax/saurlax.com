@@ -1,7 +1,7 @@
 ---
 title: patchelf 与 glibc-all-in-one
 date: 2023-12-18T19:42:12+08:00
-tags: [CTF, Pwn]
+tags: [CTF]
 ---
 
 刚开始做 Pwn 时，如果遇到需要进行本地调试的题，我们在本地运行时，可能会发现远程服务器的结果与本地的结果不一样，或遇到以下错误：
@@ -112,4 +112,3 @@ $ ldd ./fmt2
     path/to/ld-linux-x86-64.so.2 => /lib64/ld-linux-x86-64.so.2 (0x00007f6ca0ac5000)
 
 ```
-

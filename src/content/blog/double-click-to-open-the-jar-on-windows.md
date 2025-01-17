@@ -1,7 +1,7 @@
 ---
 title: Windows 双击打开 .jar 文件
 date: 2023-09-17T11:55:32+08:00
-tags: [Java, Windows]
+tags: [Windows]
 ---
 
 高版本的 OpenJDK 似乎不能直接使用 `javaw <jarfile>` 的方式运行 jar 文件，需要指定 `-jar` 参数。而 Windows 默认的打开方式是直接传入文件名的，所以导致无法正常双击运行 jar 文件，需要手动加入 `-jar` 参数。

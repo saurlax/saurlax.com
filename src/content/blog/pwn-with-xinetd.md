@@ -1,7 +1,7 @@
 ---
 title: 基于 Xinetd 部署 Pwn 靶场环境
 date: 2024-09-01T20:16:14+08:00
-tags: [CTF, Pwn, Docker]
+tags: [CTF, Docker]
 ---
 
 xinetd 是一个 Linux 系统下的超级服务器，可以监听多个端口，根据不同的端口号调用不同的服务程序。xinetd 通过配置文件来管理服务，配置文件一般位于 `/etc/xinetd.d/` 目录下。基于 xinetd 将程序的标准输入输出流重定向到 TCP 连接上，可以通过 nc 来连接题目。

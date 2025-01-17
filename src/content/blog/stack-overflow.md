@@ -1,7 +1,7 @@
 ---
 title: Stack Overflow
 date: 2023-10-31T17:02:51+08:00
-tags: [CTF, Pwn]
+tags: [CTF]
 ---
 
 ## ret2text

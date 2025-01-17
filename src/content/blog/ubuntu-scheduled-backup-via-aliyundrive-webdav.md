@@ -1,7 +1,7 @@
 ---
 title: Ubuntu 通过阿里云盘 WebDAV 实现定时备份
 date: 2024-09-18T20:57:53+08:00
-tags: [Ubuntu, WebDAV]
+tags: [Linux]
 ---
 
 ## 安装 aliyundrive-webdav

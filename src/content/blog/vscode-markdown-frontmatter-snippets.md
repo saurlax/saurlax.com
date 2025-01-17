@@ -1,7 +1,7 @@
 ---
 title: VSCode Markdown Frontmatter Snippets
 date: 2024-12-23T17:22:21+08:00
-tags: [VSCode, Markdown]
+tags: [VSCode]
 ---
 
 按下 `Ctrl + Shift + P`，输入 `Snippets: Configure Snippets`，选择 `markdown.json`，输入以下内容：

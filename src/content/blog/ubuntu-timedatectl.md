@@ -1,7 +1,7 @@
 ---
 title: Ubuntu 配置时间、时区和时间同步
 date: 2024-09-11T10:34:35+08:00
-tags: [Ubuntu]
+tags: [Linux]
 ---
 
 ## 查看当前 timedatectl 状态
