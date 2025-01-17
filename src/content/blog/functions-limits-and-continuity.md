@@ -33,17 +33,6 @@ tags: [大学]
 - 由属于 $A$ 但不属于 $B$ 的元素组成的集合称为 $A$ 与 $B$ 的差集，记作 $A \setminus B$。
 - 由 $A$ 中的任意元素 $x$ 与 $B$ 中的任意元素 $y$ 构成的有序组 $(x,y)$ 构成的集合称为 $A$ 与 $B$ 的 **Descartes 积**，记作 $A \times B$。$n$ 个 $A$ 的 Descartes 积 $A \times A \times \cdots \times A$ 记作 $A^n$。
 
-集合间的交集、并集、差集可以用下面的 Venn 图表示：
-
-```mermaid
-venn
-set A
-set B
-intersect A B
-union A B
-minus A B
-```
-
 ### 实数集与确界存在定理
 
 实数集具有以下重要性质：
