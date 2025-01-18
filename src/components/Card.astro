@@ -13,8 +13,8 @@ const { title, description, tags, href } = Astro.props;
 
 <div
   class="p-4 border rounded-lg
- border-gray-2 bg-white
- dark:border-gray-8 dark:bg-gray-9"
+ border-gray-2 bg-white dark:border-gray-8 dark:bg-gray-9
+ hover:shadow-lg transition-shadow"
 >
   <p class="text-xl font-bold"><a href={href}>{title}</a></p>
   <p class="text-sm text-gray-6 dark:text-gray-4">{description}</p>
