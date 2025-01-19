@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
       .sort((a, b) => {
         return b.data.date.getTime() - a.data.date.getTime();
       })
-      .slice(0, 30)
+      .slice(0, 12)
       .map((post) => ({
         title: post.data.title,
         pubDate: post.data.date,
