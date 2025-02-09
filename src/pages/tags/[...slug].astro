@@ -6,16 +6,16 @@ import dayjs from "dayjs";
 import ArticleCard from "../../components/ArticleCard.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
+  const postsEntries = await getCollection("posts");
   const tags = new Set<string>();
-  blogEntries.forEach((entry) => {
+  postsEntries.forEach((entry) => {
     entry.data.tags.forEach((tag) => tags.add(tag));
   });
   return Array.from(tags).map((tag) => ({
     params: { slug: tag },
     props: {
       tag,
-      entries: blogEntries.filter((entry) => entry.data.tags.includes(tag)),
+      entries: postsEntries.filter((entry) => entry.data.tags.includes(tag)),
     },
   }));
 }

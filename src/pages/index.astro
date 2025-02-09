@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 
-const blogEntries = await getCollection("blog");
+const postsEntries = await getCollection("posts");
 ---
 
 <Layout description="Web, IoT, DL, Cybersecurity and Graphics developer.">
@@ -11,7 +11,7 @@ const blogEntries = await getCollection("blog");
 
   <div class="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
     {
-      blogEntries
+      postsEntries
         .sort((a, b) => {
           return b.data.date.getTime() - a.data.date.getTime();
         })
@@ -20,7 +20,7 @@ const blogEntries = await getCollection("blog");
     }
   </div>
   <p class="text-center mt-4">
-    <a href="/blog">
+    <a href="/posts">
       <button class="text-center py-2 px-4 border border-blue rounded">
         查看更多
       </button>

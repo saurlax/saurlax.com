@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import ListLayout from "../../layouts/ListLayout.astro";
 import Card from "../../components/Card.astro";
 
-const blogEntries = await getCollection("blog");
+const postsEntries = await getCollection("posts");
 const tags: Record<string, number> = {};
-blogEntries.forEach((entry) => {
+postsEntries.forEach((entry) => {
   entry.data.tags.forEach((tag) => {
     tags[tag] = (tags[tag] || 0) + 1;
   });

@@ -3,12 +3,12 @@ import { getCollection } from "astro:content";
 import ListLayout from "../../layouts/ListLayout.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-const blogEntries = await getCollection("blog");
+const postsEntries = await getCollection("posts");
 ---
 
 <ListLayout title="Blog">
   {
-    blogEntries
+    postsEntries
       .sort((a, b) => {
         return b.data.date.getTime() - a.data.date.getTime();
       })
