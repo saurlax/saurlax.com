@@ -1,7 +1,7 @@
 ---
 title: 通过 Winlibs 配置 Windows VSCode C++ 开发环境
 date: 2024-12-12T23:33:56+08:00
-tags: [C/C++]
+tags: [C++]
 ---
 
 > 本教程仅适用于 Windows 10 及以上系统。
