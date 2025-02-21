@@ -2,6 +2,7 @@
 title: Tech Stack & Cheatsheet
 date: 2025-02-17T16:39:49+08:00
 tags: []
+pin: true
 ---
 
 Here is all the tech stack I used and cheatsheet for quickstart.
