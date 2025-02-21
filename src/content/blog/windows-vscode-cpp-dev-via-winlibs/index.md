@@ -16,7 +16,7 @@ tags: [C++]
 winget install BrechtSanders.WinLibs.MCF.UCRT
 ```
 
-![](../../assets/images/image-20.jpg)
+![](./images/image-20.jpg)
 
 然后前往 [VSCode 官网](https://code.visualstudio.com/) 下载并安装 VSCode。
 
@@ -24,7 +24,7 @@ winget install BrechtSanders.WinLibs.MCF.UCRT
 
 如果 VSCode 是英文的话，同样在扩展商店中搜索安装 `Chinese (Simplified) Language Pack for Visual Studio Code` 扩展即可。
 
-![](../../assets/images/image-21.jpg)
+![](./images/image-21.jpg)
 
 ## 配置 C/C++ 开发环境
 
@@ -33,7 +33,7 @@ winget install BrechtSanders.WinLibs.MCF.UCRT
 - 可以把这个文件夹拖到 VSCode 窗口中来打开文件夹。
 - 也可以点击左上角的 `文件` -> `打开文件夹` 来打开文件夹。
 - 还可以在对应的目录的地址栏中输入 `cmd` 并按下回车键，然后在命令提示符中输入 `code .` 来打开文件夹。
-  ![](../../assets/images/image-22.jpg)
+  ![](./images/image-22.jpg)
 
 打开文件夹后，新建一个 C 或 C++ 文件，输入以下代码：
 
@@ -50,7 +50,7 @@ int main() {
 
 如果出错，检查一下源文件路径是否有中文，需要将项目文件夹放在英文路径下，且源文件名不要有中文。
 
-![](../../assets/images/image-23.jpg)
+![](./images/image-23.jpg)
 
 ## 常用技巧
 
