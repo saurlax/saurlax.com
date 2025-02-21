@@ -6,12 +6,12 @@ export async function GET(context: APIContext) {
   if (!context.site) {
     return;
   }
-  const postsEntries = await getCollection("posts");
+  const blogEntries = await getCollection("blog");
   return rss({
     title: "Saurlax's Blog",
     description: "A blog about web development, programming, and more.",
     site: context.site,
-    items: postsEntries
+    items: blogEntries
       .sort((a, b) => {
         return b.data.date.getTime() - a.data.date.getTime();
       })
