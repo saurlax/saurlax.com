@@ -13,8 +13,7 @@ tags: [IoT]
 ## 安装过程
 
 ```bash
-a302@mini:~$ sudo dpkg -i picoscenes-source-updater.deb
-[sudo] password for a302:
+user@localhost:~$ sudo dpkg -i picoscenes-source-updater.deb
 Selecting previously unselected package picoscenes-source-updater.
 (Reading database ... 78046 files and directories currently installed.)
 Preparing to unpack picoscenes-source-updater.deb ...
@@ -59,12 +58,10 @@ sudo dpkg --remove --force-remove-reinstreq picoscenes-platform picoscenes-plugi
 
 清除之前的安装状态。
 
-## 验证采集功能
-
 首次使用 PicoSenses 需要先同意 EULA 协议
 
 ```bash
-a302@mini:~$ PicoScenes
+user@localhost:~$ PicoScenes
 
 -------------------------------------------------------------------------------------
       PicoScenes Platform --- Enabling Modern Wi-Fi ISAC Research!
@@ -96,10 +93,12 @@ You may seek technical support by:
 
 按照要求运行 `PSLP_UIC` 填写信息即可。
 
+## 采集使用
+
 首先查看当前设备上所拥有的网卡
 
 ```bash
-a302@mini:~$ array_status
+user@localhost:~$ array_status
 ----------------------
 Device Status of Wi-Fi NIC array "all":
 PhyPath DEV PHY [MON] DEV_MacAddr [MON_MacAddr] [CF_Control] [BW] [CF] ProductName
@@ -110,7 +109,7 @@ PhyPath DEV PHY [MON] DEV_MacAddr [MON_MacAddr] [CF_Control] [BW] [CF] ProductNa
 这里是 iwl5300，需要使用特殊的固件模式
 
 ```bash
-a302@mini:~$ switch5300Firmware csi
+user@localhost:~$ switch5300Firmware csi
 Switching to CSI measurement version...
 Reloading iwlwifi module ...
 ```
@@ -120,3 +119,40 @@ Reloading iwlwifi module ...
 ```bash
 PicoScenes "-d debug -i 3 --mode logger --plot"
 ```
+
+## 常见问题
+
+如果运行时出现
+
+```bash
+Unresolved device ID: 3.
+```
+
+可以往上翻翻看看有没有警告或报错，比较常见的问题是因为
+
+```bash
+[Warning] Incompatible kernel version, current version: XXX, expected version: YYY.
+```
+
+这时需要手动安装对应的内核版本，例如 `expected version: 6.5.0-15-generic`，那么就需要安装对应的内核版本
+
+```bash
+sudo apt-get install linux-image-6.5.0-15-generic linux-headers-6.5.0-15-generic
+```
+
+之后切换到对应的版本
+
+```bash
+sudo cat /boot/grub/grub.cfg
+# 找到目标版本所在的位置，我这里是 1>2
+sudo vim /etc/default/grub
+```
+
+然后修改 `GRUB_DEFAULT=1>2`，保存退出，更新 grub
+
+```bash
+sudo update-grub
+sudo reboot
+```
+
+如果希望启动时出现 grub 菜单，可以修改 `GRUB_TIMEOUT=3`，并将 `GRUB_MENU_STYLE=hidden` 修改为 `GRUB_MENU_STYLE=menu`。
