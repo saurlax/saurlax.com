@@ -1,14 +1,10 @@
 ---
 title: WindTerm 配置指南
 date: 2024-07-08T19:50:35+08:00
-tags: [Linux]
+tags: [Windows, Linux]
 ---
 
-以前一直在直接使用 ssh 登录服务器，随着服务器越来越多，经常会忘记密码。此外在操作服务器时经常会遇到需要上传和下载文件的情况，所以在寻找一款同时具有 ssh 和 sftp 功能的终端。以前尝试过 FinalShell，但是其多了很多不太需要的功能，所以最终选择了 WindTerm。
-
-{{<github repo="kingToolbox/WindTerm">}}
-
-WindTerm 是一款开源软件，可以在 [Releases](https://github.com/kingToolbox/WindTerm/releases) 中下载最新版本的安装包。
+以前一直在直接使用 ssh 登录服务器，随着服务器越来越多，经常会忘记密码。此外在操作服务器时经常会遇到需要上传和下载文件的情况，所以在寻找一款同时具有 ssh 和 sftp 功能的终端。以前尝试过 FinalShell，但是其多了很多不太需要的功能，所以最终选择了 [WindTerm](https://github.com/kingToolbox/WindTerm)。
 
 ## 配置
 
@@ -17,3 +13,5 @@ WindTerm 是一款开源软件，可以在 [Releases](https://github.com/kingToo
 **右键复制粘贴**
 
 在会话-首选项-设置菜单中，点击终端选项卡，在鼠标操作-右键单击选择框中选择“如果选中则复制文本，否则粘贴文本”。
+
+![](images/image.jpg)

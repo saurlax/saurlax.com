@@ -11,7 +11,7 @@ const { entry } = Astro.props;
 
 <Card
   title={entry.data.title}
-  description={`${dayjs(entry.data.date).format("MMM DD, YYYY")} · ${entry.body.length} chars`}
+  description={`${dayjs(entry.data.date).format("MMM DD, YYYY")} · ${entry.body?.length} 字`}
   tags={entry.data.tags}
   href={`/${entry.collection}/${entry.slug}`}
 />
