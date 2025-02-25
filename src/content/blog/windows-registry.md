@@ -48,3 +48,11 @@ tags: [Windows]
 如果选择了始终使用该程序打开，则会在 `UserChoice` 中的 `Progid` 中添加一个 `Applications\javaw.exe` 的值。
 
 > 其实一般情况下，大部分软件都会注册好自己的打开方式。就算没有，也可以在打开方式中选择 `其他应用`，然后找到对应软件的可执行程序。之所以 OpenJDK 需要这样配置，是因为选择 `其他应用` 时，系统自动生成的打开命令是 `path\to\javaw.exe "%1"`，其并没有考虑到 `-jar` 参数。
+
+## Win11 恢复 Win10 右键菜单
+
+```powershell
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+```
+
+运行完成后重启资源管理器即可。
