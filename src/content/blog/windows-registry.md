@@ -56,3 +56,7 @@ reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\Inpr
 ```
 
 运行完成后重启资源管理器即可。
+
+## 设备与驱动器
+
+https://dawncraft.cc/2022/03/348/
