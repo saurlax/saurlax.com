@@ -1,5 +1,5 @@
 ---
-title: Nodebb Docker 部署
+title: NodeBB 使用指南
 date: 2024-09-10T19:03:43+08:00
 tags: [Docker, Node.js]
 ---

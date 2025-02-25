@@ -1,6 +1,6 @@
 {
   "markdown.copyFiles.destination": {
-    "src/content/**/*.md": "/src/assets/images/image.jpg"
+    "src/content/**/*.md": "./images/image.jpg"
   },
   "[markdown]": {
     "editor.wordWrap": "on",

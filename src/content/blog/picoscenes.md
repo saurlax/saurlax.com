@@ -155,4 +155,11 @@ sudo update-grub
 sudo reboot
 ```
 
-如果希望启动时出现 grub 菜单，可以修改 `GRUB_TIMEOUT=3`，并将 `GRUB_MENU_STYLE=hidden` 修改为 `GRUB_MENU_STYLE=menu`。
+如果希望启动时出现 grub 菜单，可以修改以下内容：
+
+```ini
+# 设置菜单显示时间
+GRUB_TIMEOUT=3
+# 设置菜单显示方式，hidden 为隐藏，menu 为显示
+GRUB_TIMEOUT_STYLE=menu
+```

@@ -1,5 +1,5 @@
 ---
-title: Tmux 使用
+title: Tmux 使用指南
 date: 2025-01-17T21:34:35+08:00
 tags: [Linux]
 ---
