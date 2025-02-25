@@ -26,6 +26,8 @@ tags: [Windows]
 
 然后在 `vscode` 目录下继续创建 `command` 子目录，将其默认值设置为 `path\to\code.exe "%1"`，其中 `%1` 代表右键时选中的文件或文件夹的路径。
 
+如果觉得太麻烦了，可以尝试使用 [ContextMenuManager](https://github.com/BluePointLilac/ContextMenuManager) 这个工具。
+
 ## 打开方式
 
 文件的打开方式由以下项控制：
@@ -44,3 +46,5 @@ tags: [Windows]
 之后右键 `.jar` 文件，选择 `打开方式`，此时应该可以看到 `OpenJDK Platform Binary` 选项。选择后可以发现，`...\.jar\OpenWithList` 中会多出一个 `a` 的键值，其值为 `javaw.exe`。
 
 如果选择了始终使用该程序打开，则会在 `UserChoice` 中的 `Progid` 中添加一个 `Applications\javaw.exe` 的值。
+
+> 其实一般情况下，大部分软件都会注册好自己的打开方式。就算没有，也可以在打开方式中选择 `其他应用`，然后找到对应软件的可执行程序。之所以 OpenJDK 需要这样配置，是因为选择 `其他应用` 时，系统自动生成的打开命令是 `path\to\javaw.exe "%1"`，其并没有考虑到 `-jar` 参数。
