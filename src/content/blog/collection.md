@@ -49,6 +49,8 @@ pin: true
 - [seaborn](https://seaborn.pydata.org/api.html): 更好的 matplotlib
 - [matplotlib](https://matplotlib.org/stable/api/index.html): 但是 seaborn 没法绘制一些控件
 - [plotly](https://plotly.com/python-api-reference/): 交互式图表
+- pyqtgraph: 更快的绘图库
+- datashader: 大数据可视化
 
 ## Go
 
@@ -112,6 +114,7 @@ pin: true
 - [draw.io](https://app.diagrams.net/): 流程图绘制工具
 - [Typora](https://typora.io/)
 - [Obsidian](https://obsidian.md/): Markdown 知识库管理工具
+- Typst: 易用的文字排版工具
 
 **其他**
 
