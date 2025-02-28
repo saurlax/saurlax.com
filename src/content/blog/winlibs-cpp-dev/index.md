@@ -1,5 +1,5 @@
 ---
-title: 通过 Winlibs 配置 Windows VSCode C++ 开发环境
+title: 通过 Winlibs 配置 VSCode C++ 开发环境
 date: 2024-12-12T23:33:56+08:00
 tags: [C++]
 ---
