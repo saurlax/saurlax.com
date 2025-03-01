@@ -1,5 +1,5 @@
 ---
-title: 从零开发一个 Node.js CLI 程序
+title: Node.js CLI 程序开发
 date: 2023-10-21T22:30:07+08:00
 tags: [Node.js]
 ---
