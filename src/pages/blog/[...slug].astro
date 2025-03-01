@@ -12,6 +12,10 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
+
+if (entry.data.draft) {
+  entry.data.tags.push("草稿");
+}
 ---
 
 <ArticleLayout

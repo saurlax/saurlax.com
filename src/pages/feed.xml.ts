@@ -6,7 +6,9 @@ export async function GET(context: APIContext) {
   if (!context.site) {
     return;
   }
-  const blogEntries = await getCollection("blog");
+  const blogEntries = await getCollection("blog").then((entries) => {
+    return entries.filter((entry) => !entry.data.draft);
+  });
   return rss({
     title: "Saurlax's Blog",
     description: "A blog about web development, programming, and more.",

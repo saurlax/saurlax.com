@@ -7,6 +7,10 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+
+if (entry.data.draft) {
+  entry.data.tags.push("草稿");
+}
 ---
 
 <Card

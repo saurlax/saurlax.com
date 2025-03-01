@@ -7,10 +7,10 @@ export const collections = {
       title: z.string(),
       date: z.date(),
       tags: z.array(z.string()),
-      pin: z.boolean().optional(),
       lang: z.string().optional(),
-      // If provided, the card of this blog will be a link to this URL
       href: z.string().optional(),
+      pin: z.boolean().optional(),
+      draft: z.boolean().optional(),
     }),
   }),
   friends: defineCollection({
