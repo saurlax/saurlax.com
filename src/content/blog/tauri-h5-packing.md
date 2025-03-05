@@ -6,7 +6,7 @@ tags: [Rust]
 
 Tauri v2 支持了打包到移动端。对于已经开发好的网页应用想要套壳到移动端，除了自己打开 Android Studio 或者 Xcode 手动打包，还可以使用 Tauri 来打包。
 
-要使用 Tauri，首先要确保 Rust 和 Node.js 环境已经安装好。具体请见[先决条件](https://v2.tauri.org.cn/start/prerequisites/)。
+要使用 Tauri，首先要确保 Rust 和 Node.js 环境已经安装好。具体请见[先决条件](https://tauri.app/zh-cn/start/prerequisites/)。
 
 ## 创建项目
 
@@ -70,3 +70,7 @@ document.location.href = "https://example.com/";
 pnpm tauri andorid init
 pnpm tauri andorid build
 ```
+
+## 签名
+
+https://tauri.app/zh-cn/distribute/sign/android/
