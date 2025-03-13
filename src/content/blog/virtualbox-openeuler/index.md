@@ -21,3 +21,21 @@ tags: [大学, Windows]
 尝试了网上的一些办法，只需要将 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\VBoxSup` 的 `Start` 值从 1 更改为 2 即可。重启后再进入虚拟机，就可以正常使用了。
 
 ![](images/image-3.jpg)
+
+安装完成后，可以在虚拟机中使用 OpenEuler 了。虚拟机默认使用 NAT 网络，可以连接到外网，但是主机无法连接到虚拟机。如果需要主机和虚拟机之间的通信，可以再添加一块 Host-Only 网卡。
+
+![](images/image-4.jpg)
+
+随后进入虚拟机运行 `ip a` 查看网络信息，可以看到多了一个网卡 `enp0s8`，这个网卡的 IP 地址就是虚拟机的 IP 地址。如果没有显示 IP 地址，需要手动启用网卡。
+
+```bash
+sudo nmcli device connect enp0s8
+```
+
+之后再次运行 `ip a`，就可以看到 IP 地址了。
+
+![](images/image-5.jpg)
+
+使用 `ssh` 命令连接到虚拟机测试：
+
+![](images/image-6.jpg)
