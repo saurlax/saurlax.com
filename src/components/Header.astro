@@ -1,8 +1,14 @@
-<header class="sticky z-100 top-0 backdrop-blur">
+---
+import Logo from "../assets/logo.svg";
+---
+
+<header
+  class="sticky z-100 top-0 backdrop-blur bg-op-50 bg-gray-1 dark:bg-gray-9 border-b"
+>
   <div class="px-6 py-4 mx-auto flex justify-between">
     <nav class="inline-flex items-center gap-x-2">
       <a class="inline-flex items-center gap-x-1" href="/">
-        <img src="/favicon.svg" alt="Saurlax" class="w-8 h-8" />
+        <Logo width={32} height={32} fill="currentColor" />
         <span class="font-bold">Saurlax</span>
       </a>
       <a class="i-ri-rss-line" href="/feed.xml"></a>
@@ -21,10 +27,7 @@
     </nav>
   </div>
   <div id="menu" class="hidden">
-    <div
-      class="w-full p-4 flex flex-col gap-y-4 border-t border-b bg-opacity-50 shadow
-    border-gray-2 bg-white dark:border-gray-8 dark:bg-black"
-    >
+    <div class="w-full p-4 flex flex-col gap-y-4">
       <a href="/blog">Blog</a>
       <a href="/tags">Tags</a>
       <a href="/projects">Projects</a>

@@ -15,4 +15,7 @@ export default defineConfig({
     remarkPlugins: [remarkMath],
     rehypePlugins: [[rehypeKatex, { throwOnError: false, strict: false }]],
   },
+  experimental: {
+    svg: true,
+  },
 });
