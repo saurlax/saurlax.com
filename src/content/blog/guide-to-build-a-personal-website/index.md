@@ -30,7 +30,7 @@ tags: []
 
 - [Hexo](https://hexo.io/zh-cn/)：是 Node.js 编写的静态网站生成器，速度快，支持 Markdown 和 EJS 模板语言。因为是 Node.js 编写的，所以很多内容可以通过 js 预先渲染，速度更快。
 - [Hugo](https://gohugo.io/)：是 Go 语言编写的静态网站生成器，速度快，支持 Markdown 和 Go 模板语言。但是对于数学公式渲染等需求，通常需要在前端渲染，没有预先渲染的快。
-- [Jekyll](https://jekyllcn.com/docs/home/)：是 GitHub Pages 的默认静态网站生成器，使用 Ruby 编写，支持 Markdown 和 Liquid 模板语言。有点是不需要任何配置即可直接在 GitHub 上部署，缺点是速度较慢，功能较少。
+- [Jekyll](https://jekyllcn.com/docs/home/)：是 GitHub Pages 的默认静态网站生成器，使用 Ruby 编写，支持 Markdown 和 Liquid 模板语言。优点是不需要任何配置即可直接在 GitHub 上部署，缺点是速度较慢，功能较少。
 - [Zola](https://www.getzola.org/)：是 Rust 编写的静态网站生成器，速度快，支持 Markdown 和 Tera 模板语言。
 
 以下是一些静态文档网站生成器，适合搭建文档网站。较上面的生成器来说通用性较差，但是针对文档的组织和展示进行了优化，通常会有更好的体验。
