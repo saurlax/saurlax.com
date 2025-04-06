@@ -155,7 +155,7 @@ Serverless 平台通常针对常见静态网站生成器和前端框架已预先
 
 如果使用的服务器在大陆，还要注意备案问题。通常会选择中国香港的服务器，国内访问速度较快且不需要备案。
 
-- 阿里云：[高校计划](https://university.aliyun.com/)有 300 元代金券可用于免费领取 2C2G 服务器，流量按量计费。此外 99 计划的服务器可以无限续费，省去了经常迁移的麻烦。若使用我的[推广链接](https://www.aliyun.com/minisite/goods?userCode=pc0yjq6f)可以联系我技术支持。
+- 阿里云：[高校计划](https://university.aliyun.com/)有 300 元代金券可用于免费领取 2C2G 服务器，流量按量计费。此外 99 计划的服务器可以无限续费，省去了经常迁移的麻烦。
 - 腾讯云：[云+校园](https://cloud.tencent.com/act/campus?utm_source=qcloud&utm_medium=navigation&utm_campaign=campus)有国内 2C2G4M 112 元/年的优惠，总共可以续费 3 次。
 - Azure：通过 GitHub 学生认证后可以领取 200 美元代金券，但是只能购买最低的 1C0.5G 服务器，流量按量计费。
 - DigitalOcean：通过 GitHub 学生认证后可以领取 200 美元代金券。
@@ -207,6 +207,15 @@ Serverless 平台通常针对常见静态网站生成器和前端框架已预先
 
 - [十年之约](https://www.foreverblog.cn/)：十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！
 - [开往](https://www.travellings.cn/)：让传统友链“活跃”，让网页相互接力，让流量相互流动，让网络开放起来
+
+### 网站美化
+
+有很多可以直接通过 `<script>` 标签引入的 CSS 和 JS 库，可以快速美化你的网站。常用的有：
+
+- [Font Awesome](https://fontawesome.com/)：提供了大量的图标，可以通过 `<i class="fa fa-icon"></i>` 的形式来使用。在 npm 上有现成的包，可以直接通过 [jsdelivr](https://www.jsdelivr.com/package/npm/font-awesome) 引入。
+- [Google Fonts](https://fonts.google.com/)：提供了大量的字体，可以用于修改网站的字体。
+- [Giscus](https://giscus.app/)：开源的评论系统，可以通过 GitHub Discussions 来进行评论。可以在 GitHub 上创建一个新的仓库，作为评论的存储库。
+- [Live2D Widget](https://github.com/stevenjoezhang/live2d-widget)：在网页中添加 Live2D 看板娘。兼容 PJAX，支持无刷新加载。
 
 ## 实战演练
 
