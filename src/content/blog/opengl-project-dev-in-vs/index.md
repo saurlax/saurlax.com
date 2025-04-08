@@ -8,9 +8,9 @@ tags: []
 
 首先确保你已在 Visual Studio Installer 中安装了以下组件：
 
-- Visual Studio 2022 17.13.5 over higher
+- Visual Studio 2022 17.13.5 or higher
 - 使用 C++ 的桌面开发（MSVC v143）
-- Windows 10 SDK (10.0.22000.0) over higher
+- Windows 10 SDK (10.0.22000.0) or higher
 
 安装完成后，打开你的 Visual Studio 2022，选择创建新项目，然后选择 `C++` 语言，搜索 `空项目`，选择 `空项目` 模板，点击下一步。
 
