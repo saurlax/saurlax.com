@@ -122,22 +122,12 @@ PicoScenes "-d debug -i 3 --mode logger --plot"
 
 ## 常见问题
 
-如果运行时出现
-
-```bash
-Unresolved device ID: 3.
-```
-
-可以往上翻翻看看有没有警告或报错，比较常见的问题是因为
-
-```bash
-[Warning] Incompatible kernel version, current version: XXX, expected version: YYY.
-```
+### [Warning] Incompatible kernel version, current version: XXX, expected version: YYY.
 
 这时需要手动安装对应的内核版本，例如 `expected version: 6.5.0-15-generic`，那么就需要安装对应的内核版本
 
 ```bash
-sudo apt-get install linux-image-6.5.0-15-generic linux-headers-6.5.0-15-generic
+sudo apt-get install linux-image-6.5.0-15-generic linux-headers-6.5.0-15-generic linux-modules-extra-6.5.0-15-generic
 ```
 
 之后切换到对应的版本
@@ -148,14 +138,9 @@ sudo cat /boot/grub/grub.cfg
 sudo vim /etc/default/grub
 ```
 
-然后修改 `GRUB_DEFAULT=1>2`，保存退出，更新 grub
+然后修改 `GRUB_DEFAULT=1>2`，保存退出。
 
-```bash
-sudo update-grub
-sudo reboot
-```
-
-如果希望启动时出现 grub 菜单，可以修改以下内容：
+如果希望启动时出现 grub 菜单，还可以修改以下内容：
 
 ```ini
 # 设置菜单显示时间
@@ -163,3 +148,11 @@ GRUB_TIMEOUT=3
 # 设置菜单显示方式，hidden 为隐藏，menu 为显示
 GRUB_TIMEOUT_STYLE=menu
 ```
+
+保存退出，更新 grub。
+
+```bash
+sudo update-grub
+```
+
+之后重启即可生效。
