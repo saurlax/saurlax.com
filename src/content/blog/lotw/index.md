@@ -2,10 +2,11 @@
 title: LOTW 日志系统注册使用
 date: 2025-04-11T14:29:44+08:00
 tags: [业余无线电]
-draft: true
 ---
 
 LOTW 是 ARRL 提供的一个业余无线电日志系统，允许用户上传和下载电子日志。它是一个非常方便的工具，可以帮助你管理和验证你的 QSO 记录。许多 DXCC 奖励和其他奖项都可以通过 LOTW 来申请。
+
+## 申请 LoTW 账号
 
 首先下载并安装 [TQSL](http://www.arrl.org/tqsl-download) 软件，首次打开后会提示你申请一个呼号证书。
 
@@ -37,4 +38,25 @@ LOTW 是 ARRL 提供的一个业余无线电日志系统，允许用户上传和
 
 三个文件的电子版发送到 lotw-help@arrl.org 即可。个人敏感信息部分可以打码处理。
 
-一般会在申请的当天或第二个工作日收到回复邮件。里面将会包含个人信息、 LoTW 账号密码和呼号证书 `.tq6` 文件。
+一般会在申请的当天或第二个工作日收到回复邮件。里面将会包含个人信息、 LoTW 账号密码和呼号证书 `.tq6` 文件。双击 `.tq6` 文件即可导入到 TQSL 中。
+
+## 添加台站位置
+
+点击菜单栏 `台站位置` -> `添加新台站位置...`，填写台站的梅登黑德网格号和 ITU 分区，之后选择省份后会自动填入 CQ 分区，IOTA ID 可以先留空不填。具体的梅登黑德网格号和 ITU 分区可以参考下面的链接：
+
+- https://ham.c5r.app/maidenhead-grid
+- http://www.srac.cn/grid/
+- https://www.bd8bzy.net/zh-CN/blog/itu-cq-worldmaps/
+- https://lotw.arrl.org/lotw-help/data/uploads/ITUZones.gif
+
+![](images/image-5.jpg)
+
+最后输入台站名称，点击完成保存即可。
+
+## 备份台站数据和呼号证书
+
+上面的 `.tq6` 文件是只能使用一次的，为了避免更换电脑后无法使用，需要及时备份自己的台站数据和呼号证书。
+
+点击菜单栏的 `文件` -> `备份台站位置，证书和参数...`，选择一个目录保存即可。
+
+![](images/image-6.jpg)
